@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/bottom_navigation_widget.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -17,6 +19,7 @@ class _HomePageState extends State<HomePage> {
       body: const Center(
         child: Text('Screen'),
       ),
+      bottomNavigationBar: const BottomNavigation(),
     );
   }
 }
