@@ -13,11 +13,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ACF News'),
-      ),
-      body: const Center(
-        child: Text('Screen'),
+      body: ListView(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.45,
+            decoration: const BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(40),
+                bottomRight: Radius.circular(40),
+              ),
+            ),
+          )
+        ],
       ),
       bottomNavigationBar: const BottomNavigation(),
     );
