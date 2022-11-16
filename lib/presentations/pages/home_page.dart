@@ -1,4 +1,3 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/bottom_navigation_widget.dart';
@@ -15,9 +14,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
+        padding: EdgeInsets.zero,
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.45,
+            height: MediaQuery.of(context).size.height * 0.48,
             decoration: const BoxDecoration(
               color: Colors.amber,
               borderRadius: BorderRadius.only(
@@ -28,18 +28,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-<<<<<<< HEAD
       bottomNavigationBar: const BottomNavigation(),
-=======
-      bottomNavigationBar: ConvexAppBar(
-        items: const [
-          TabItem(icon: Icons.home, title: 'Home'),
-          TabItem(icon: Icons.search, title: 'Search'),
-          TabItem(icon: Icons.bookmark, title: 'Bookmark'),
-          TabItem(icon: Icons.account_box_rounded, title: 'Account'),
-        ],
-      ),
->>>>>>> bc1f421ce02cd8c08c5619cbb55d52a3a96727ce
     );
   }
 }

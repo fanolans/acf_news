@@ -1,4 +1,3 @@
-import 'package:acf_news/presentations/pages/home_page.dart';
 import 'package:acf_news/presentations/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
