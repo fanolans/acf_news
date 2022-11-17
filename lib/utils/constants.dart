@@ -1,3 +1,2 @@
-import 'package:flutter/animation.dart';
-
-const kLoadingColor = Color(0xDADADA);
+const assetImages = 'assets/images/';
+const assetIcons = 'assets/icons/';
