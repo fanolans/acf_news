@@ -1,0 +1,66 @@
+import 'package:flutter/material.dart';
+
+class SearchPage extends StatefulWidget {
+  const SearchPage({Key? key}) : super(key: key);
+
+  @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  String queries = '';
+  final TextEditingController _searchControl = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(16, 60, 0, 0),
+                ),
+                Text(
+                  'Search Some News',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+              ],
+            ),
+            _searchBar(),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _searchBar() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
+      child: TextField(
+        controller: _searchControl,
+        onChanged: (_) => setState(() {}),
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.all(10.0),
+          hintText: "Search",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 2.0),
+            borderRadius: BorderRadius.circular(25.0),
+          ),
+          prefixIcon: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
