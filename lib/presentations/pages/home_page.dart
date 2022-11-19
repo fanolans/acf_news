@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/global_functions.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -27,8 +29,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                const Card(
-                  child: Text('Berita hari ini'),
+                Card(
+                  child: Text(
+                    'Berita hari ini',
+                    style: GlobalFunctions.textTheme(context: context)
+                        .headline3!
+                        .copyWith(color: Colors.black, fontSize: 14),
+                  ),
                 ),
               ],
             )
