@@ -15,15 +15,22 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.48,
-              decoration: const BoxDecoration(
-                color: Colors.amber,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(40),
-                  bottomRight: Radius.circular(40),
+            Stack(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.48,
+                  decoration: const BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(40),
+                      bottomRight: Radius.circular(40),
+                    ),
+                  ),
                 ),
-              ),
+                const Card(
+                  child: Text('Berita hari ini'),
+                ),
+              ],
             )
           ],
         ),
