@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/global_functions.dart';
 import '../../utils/styles.dart';
 
 class AccountPage extends StatefulWidget {
@@ -19,7 +20,9 @@ class _AccountPageState extends State<AccountPage> {
           children: [
             Text(
               'Settings',
-              style: Theme.of(context).textTheme.headline5,
+              style: GlobalFunctions.textTheme(context: context)
+                  .headline5!
+                  .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ],
         ),

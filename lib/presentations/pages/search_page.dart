@@ -1,6 +1,8 @@
 import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 
+import '../../utils/global_functions.dart';
+
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
 
@@ -20,8 +22,10 @@ class _SearchPageState extends State<SearchPage> {
         title: Row(
           children: [
             Text(
-              'Search some news',
-              style: Theme.of(context).textTheme.headline5,
+              'Find something news',
+              style: GlobalFunctions.textTheme(context: context)
+                  .headline5!
+                  .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -40,7 +44,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget _searchBar() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
       child: TextField(
         controller: _searchControl,
         onChanged: (_) => setState(() {}),

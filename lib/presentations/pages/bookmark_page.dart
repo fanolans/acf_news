@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/global_functions.dart';
 import '../../utils/styles.dart';
 
 class BookmarkPage extends StatefulWidget {
@@ -19,7 +20,9 @@ class _BookmarkPageState extends State<BookmarkPage> {
           children: [
             Text(
               'Your bookmark news',
-              style: Theme.of(context).textTheme.headline5,
+              style: GlobalFunctions.textTheme(context: context)
+                  .headline5!
+                  .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ],
         ),
