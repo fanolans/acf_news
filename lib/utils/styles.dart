@@ -12,7 +12,7 @@ final textTheme = TextTheme(
   headline3: GoogleFonts.inter(fontSize: 47, fontWeight: FontWeight.w400),
   headline4: GoogleFonts.inter(
       fontSize: 33, fontWeight: FontWeight.w400, letterSpacing: 0.25),
-  headline5: GoogleFonts.inter(fontSize: 23, fontWeight: FontWeight.w400),
+  headline5: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.w400),
   headline6: GoogleFonts.inter(
       fontSize: 19, fontWeight: FontWeight.w500, letterSpacing: 0.15),
   subtitle1: GoogleFonts.inter(
