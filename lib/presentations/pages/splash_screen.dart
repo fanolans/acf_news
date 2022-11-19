@@ -36,12 +36,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kColorPrimary,
-      body: const Center(
+      backgroundColor: kColorSecondary,
+      body: Center(
         child: Center(
           child: Text(
             'ACF News',
-            style: TextStyle(fontSize: 24, color: Colors.white),
+            style: Theme.of(context).textTheme.headline6,
           ),
         ),
       ),
