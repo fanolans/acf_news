@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    Article article = Article.articles[0];
+    Article article = Article.articles;
     return Scaffold(
       body: SafeArea(
         child: ListView(
