@@ -1,3 +1,4 @@
+import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {
@@ -14,20 +15,21 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: kColorPrimary,
+        title: Row(
+          children: [
+            Text(
+              'Search some news',
+              style: Theme.of(context).textTheme.headline5,
+            ),
+          ],
+        ),
+        elevation: 0,
+      ),
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(16, 60, 0, 0),
-                ),
-                Text(
-                  'Search Some News',
-                  style: Theme.of(context).textTheme.headline5,
-                ),
-              ],
-            ),
             _searchBar(),
             const SizedBox(height: 8),
           ],
