@@ -12,13 +12,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    Article article = Article.articles;
+    Article article = Article.articles[0];
     return Scaffold(
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             _NewsOfTheDay(article: article),
+            _BreakingNews(articles: Article.articles),
           ],
         ),
       ),
@@ -26,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// NEWS OF THE DAY
 class _NewsOfTheDay extends StatelessWidget {
   const _NewsOfTheDay({
     Key? key,
@@ -39,12 +41,11 @@ class _NewsOfTheDay extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       height: MediaQuery.of(context).size.height * 0.48,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-            image: NetworkImage(
-                "https://img.antaranews.com/cache/800x533/2022/11/19/Team-Mitsubishi-Ralliart-2.jpg"),
+            image: NetworkImage(Article.articles[0].thumbnail),
             fit: BoxFit.cover),
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(40),
           bottomRight: Radius.circular(40),
         ),
@@ -97,6 +98,89 @@ class _NewsOfTheDay extends StatelessWidget {
                   size: 20,
                 )
               ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+// BREAKING NEWS
+class _BreakingNews extends StatelessWidget {
+  const _BreakingNews({
+    Key? key,
+    required this.articles,
+  }) : super(key: key);
+
+  final List<Article> articles;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Breaking News",
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall
+                    ?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              Text("More", style: Theme.of(context).textTheme.bodyLarge),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+            height: 250,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: articles.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  height: 122,
+                  width: 193,
+                  margin: const EdgeInsets.only(right: 10),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 122,
+                        width: 193,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  Article.articles[index].thumbnail),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        articles[index].title,
+                        maxLines: 2,
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            fontWeight: FontWeight.bold, height: 1.5),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        '${DateTime.now()}',
+                        maxLines: 2,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
           )
         ],
