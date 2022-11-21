@@ -80,7 +80,7 @@ class _NewsOfTheDay extends StatelessWidget {
               children: [
                 Text(
                   "Read more",
-                  style: textTheme.subtitle2?.copyWith(color: kColorSecondary),,
+                  style: textTheme.subtitle2?.copyWith(color: kColorSecondary),
                 ),
                 const SizedBox(
                   width: 5,
@@ -121,7 +121,8 @@ class _BreakingNews extends StatelessWidget {
                 "Breaking News",
                 style: textTheme.headline5?.copyWith(color: Colors.black),
               ),
-              Text("More", style: textTheme.subtitle2?.copyWith(color: Colors.black)),
+              Text("More",
+                  style: textTheme.subtitle2?.copyWith(color: Colors.black)),
             ],
           ),
           const SizedBox(
@@ -156,7 +157,8 @@ class _BreakingNews extends StatelessWidget {
                       Text(
                         articles[index].title,
                         maxLines: 2,
-                        style: textTheme.subtitle1?.copyWith(color: Colors.black),
+                        style:
+                            textTheme.subtitle1?.copyWith(color: Colors.black),
                       ),
                       const SizedBox(
                         height: 5,
