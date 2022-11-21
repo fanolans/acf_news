@@ -1,5 +1,6 @@
 import 'package:acf_news/data/model/article_model.dart';
 import 'package:acf_news/presentations/widgets/custom_tag.dart';
+import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -59,10 +60,7 @@ class _NewsOfTheDay extends StatelessWidget {
             children: [
               Text(
                 "News of the Day",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(color: Colors.white),
+                style: textTheme.subtitle2?.copyWith(color: kColorSecondary),
               ),
             ],
           ),
@@ -71,11 +69,9 @@ class _NewsOfTheDay extends StatelessWidget {
           ),
           Text(
             article.title,
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  height: 1.25,
-                ),
+            style: textTheme.headline4?.copyWith(
+              color: kColorSecondary,
+            ),
           ),
           TextButton(
             style: TextButton.styleFrom(padding: EdgeInsets.zero),
@@ -84,10 +80,7 @@ class _NewsOfTheDay extends StatelessWidget {
               children: [
                 Text(
                   "Read more",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge
-                      ?.copyWith(color: Colors.white),
+                  style: textTheme.subtitle2?.copyWith(color: kColorSecondary),,
                 ),
                 const SizedBox(
                   width: 5,
@@ -126,12 +119,9 @@ class _BreakingNews extends StatelessWidget {
             children: [
               Text(
                 "Breaking News",
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineSmall
-                    ?.copyWith(fontWeight: FontWeight.bold),
+                style: textTheme.headline5?.copyWith(color: Colors.black),
               ),
-              Text("More", style: Theme.of(context).textTheme.bodyLarge),
+              Text("More", style: textTheme.subtitle2?.copyWith(color: Colors.black)),
             ],
           ),
           const SizedBox(
@@ -166,15 +156,13 @@ class _BreakingNews extends StatelessWidget {
                       Text(
                         articles[index].title,
                         maxLines: 2,
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            fontWeight: FontWeight.bold, height: 1.5),
+                        style: textTheme.subtitle1?.copyWith(color: Colors.black),
                       ),
                       const SizedBox(
                         height: 5,
                       ),
                       Text(
                         '${DateTime.now()}',
-                        maxLines: 2,
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
