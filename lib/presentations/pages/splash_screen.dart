@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:acf_news/presentations/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/styles.dart';
-import '../widgets/bottom_navigation_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => const BottomNavigation(),
+        builder: (BuildContext context) => const HomePage(),
       ),
     );
   }
