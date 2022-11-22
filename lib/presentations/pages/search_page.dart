@@ -1,4 +1,7 @@
+import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
+
+import '../../utils/global_functions.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -14,22 +17,172 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: kColorPrimary,
+        title: Row(
+          children: [
+            Text(
+              'Find something news',
+              style: GlobalFunctions.textTheme(context: context)
+                  .headline5!
+                  .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        elevation: 0,
+      ),
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(16, 60, 0, 0),
-                ),
-                Text(
-                  'Search Some News',
-                  style: Theme.of(context).textTheme.headline5,
-                ),
-              ],
-            ),
             _searchBar(),
-            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 16, 16),
+                            child: Container(
+                              height: 45,
+                              decoration: BoxDecoration(
+                                color: kColorPrimary,
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 10,
+                                    color: Color(0x2596C3E2),
+                                    offset: Offset(0, 6),
+                                  ),
+                                ],
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              alignment: const AlignmentDirectional(0, 0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16, 0, 16, 0),
+                                child: Text(
+                                  'Top Headlines',
+                                  style: GlobalFunctions.textTheme(
+                                          context: context)
+                                      .subtitle1!
+                                      .copyWith(
+                                        color: Colors.black,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 16, 16),
+                            child: Container(
+                              height: 45,
+                              decoration: BoxDecoration(
+                                color: kColorPrimary,
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 10,
+                                    color: Color(0x2596C3E2),
+                                    offset: Offset(0, 6),
+                                  ),
+                                ],
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              alignment: const AlignmentDirectional(0, 0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16, 0, 16, 0),
+                                child: Text(
+                                  'Health',
+                                  style: GlobalFunctions.textTheme(
+                                          context: context)
+                                      .subtitle1!
+                                      .copyWith(
+                                        color: Colors.black,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 16, 16),
+                            child: Container(
+                              height: 45,
+                              decoration: BoxDecoration(
+                                color: kColorPrimary,
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 10,
+                                    color: Color(0x2596C3E2),
+                                    offset: Offset(0, 6),
+                                  ),
+                                ],
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              alignment: const AlignmentDirectional(0, 0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16, 0, 16, 0),
+                                child: Text(
+                                  'Technology',
+                                  style: GlobalFunctions.textTheme(
+                                          context: context)
+                                      .subtitle1!
+                                      .copyWith(
+                                        color: Colors.black,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 16, 16),
+                            child: Container(
+                              height: 45,
+                              decoration: BoxDecoration(
+                                color: kColorPrimary,
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 10,
+                                    color: Color(0x2596C3E2),
+                                    offset: Offset(0, 6),
+                                  ),
+                                ],
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              alignment: const AlignmentDirectional(0, 0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16, 0, 16, 0),
+                                child: Text(
+                                  'Sports',
+                                  style: GlobalFunctions.textTheme(
+                                          context: context)
+                                      .subtitle1!
+                                      .copyWith(
+                                        color: Colors.black,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -38,7 +191,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget _searchBar() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
       child: TextField(
         controller: _searchControl,
         onChanged: (_) => setState(() {}),

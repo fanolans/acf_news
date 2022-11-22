@@ -44,26 +44,22 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return [
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.home),
-        title: ("Home"),
-        activeColorPrimary: kColorPrimary,
+        activeColorPrimary: kColorSecondary,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.search),
-        title: ("Search"),
-        activeColorPrimary: kColorPrimary,
+        activeColorPrimary: kColorSecondary,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.bookmark),
-        title: ("Bookmark"),
-        activeColorPrimary: kColorPrimary,
+        activeColorPrimary: kColorSecondary,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.account_circle),
-        title: ("Account"),
-        activeColorPrimary: kColorPrimary,
+        activeColorPrimary: kColorSecondary,
         inactiveColorPrimary: Colors.grey,
       ),
     ];
