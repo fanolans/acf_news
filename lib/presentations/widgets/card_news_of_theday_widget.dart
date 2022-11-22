@@ -5,12 +5,12 @@ import '../../data/model/article_model.dart';
 import 'customtag_newsoftheday_widget.dart';
 
 class NewsOfTheDay extends StatelessWidget {
+  final Article article;
+
   const NewsOfTheDay({
     Key? key,
     required this.article,
   }) : super(key: key);
-
-  final Article article;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,7 @@ class NewsOfTheDay extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.48,
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: NetworkImage(article.urlToImage.toString()),
-            fit: BoxFit.cover),
+            image: NetworkImage(article.urlToImage!), fit: BoxFit.cover),
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(40),
           bottomRight: Radius.circular(40),

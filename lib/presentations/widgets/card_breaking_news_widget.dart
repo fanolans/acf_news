@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 import '../../data/model/article_model.dart';
 
 class BreakingNews extends StatelessWidget {
+  final List<Article> articles;
   const BreakingNews({
     Key? key,
-    required this.article,
+    required this.articles,
   }) : super(key: key);
-
-  final List<Article> article;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,7 @@ class BreakingNews extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           image: DecorationImage(
-                              image: NetworkImage(articles.),
+                              image: NetworkImage(articles[index].urlToImage!),
                               fit: BoxFit.cover),
                         ),
                       ),
@@ -66,7 +65,7 @@ class BreakingNews extends StatelessWidget {
                         height: 5,
                       ),
                       Text(
-                        '${DateTime.now()}',
+                        '${DateTime.now().difference(articles[index].publishedAt!).inHours} hours ago',
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],

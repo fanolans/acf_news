@@ -2,11 +2,7 @@ import 'package:acf_news/data/api/api_service.dart';
 import 'package:acf_news/data/model/article_model.dart';
 import 'package:acf_news/presentations/widgets/card_breaking_news_widget.dart';
 import 'package:acf_news/presentations/widgets/card_news_of_theday_widget.dart';
-import 'package:acf_news/presentations/widgets/customtag_newsoftheday_widget.dart';
-import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
-
-import '../../utils/global_functions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,6 +20,7 @@ class _HomePageState extends State<HomePage> {
     _article = ApiServices().topHeadlines();
   }
 
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: _article,
@@ -35,13 +32,13 @@ class _HomePageState extends State<HomePage> {
           );
         } else {
           if (snapshot.hasData) {
-            var article = snapshot.data?.articles[0];
+            var article = snapshot.data?.articles;
             return SafeArea(
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
                   NewsOfTheDay(article: article),
-                  BreakingNews(article: article),
+                  BreakingNews(articles: article!),
                 ],
               ),
             );
