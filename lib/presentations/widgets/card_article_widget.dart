@@ -2,7 +2,6 @@ import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/model/article_model.dart';
-import '../pages/article_detail_page.dart';
 
 class CardArticle extends StatelessWidget {
   final Article article;
@@ -11,27 +10,41 @@ class CardArticle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: kColorPrimary,
-      child: ListTile(
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        leading: Hero(
-          tag: article.urlToImage!,
-          child: Image.network(
-            article.urlToImage!,
-            width: 100,
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 20,
+        right: 20,
+      ),
+      child: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.40,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(article.urlToImage!),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-        ),
-        title: Text(
-          article.title,
-        ),
-        subtitle: Text(article.author ?? ''),
-        onTap: () => Navigator.pushNamed(
-          context,
-          ArticleDetailPage.routeName,
-          arguments: article,
-        ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            article.title,
+            maxLines: 2,
+            style: textTheme.subtitle1?.copyWith(color: Colors.black),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Text(
+            article.author!,
+            style: textTheme.subtitle2?.copyWith(color: Colors.grey),
+          ),
+          const SizedBox(
+            height: 20,
+          )
+        ],
       ),
     );
   }

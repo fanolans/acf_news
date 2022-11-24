@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import 'package:acf_news/data/api/api_service.dart';
-import 'package:acf_news/data/model/article_model.dart';
-import 'package:acf_news/presentations/widgets/card_breaking_news_widget.dart';
-import 'package:acf_news/presentations/widgets/card_news_of_theday_widget.dart';
-import 'package:flutter/material.dart';
-
-=======
 import 'dart:io';
 
 import 'package:acf_news/presentations/pages/article_list_page.dart';
@@ -21,7 +13,6 @@ import '../../data/api/api_service.dart';
 import '../../data/provider/news_provider.dart';
 import '../widgets/platform_widget.dart';
 
->>>>>>> 6533b0a7f588612547219c98de26dba5b48179c9
 class HomePage extends StatefulWidget {
   static const routeName = '/home_page';
 
@@ -32,51 +23,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-<<<<<<< HEAD
-  late Future<ArticlesResult> _article;
-
-  @override
-  void initState() {
-    super.initState();
-    _article = ApiServices().topHeadlines();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _article,
-      builder: (context, AsyncSnapshot<ArticlesResult> snapshot) {
-        var state = snapshot.connectionState;
-        if (state != ConnectionState.done) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else {
-          if (snapshot.hasData) {
-            var article = snapshot.data?.articles;
-            return SafeArea(
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: [
-                  NewsOfTheDay(article: article),
-                  BreakingNews(articles: article!),
-                ],
-              ),
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Material(
-                child: Text(snapshot.error.toString()),
-              ),
-            );
-          } else {
-            return const Material(
-              child: Text(''),
-            );
-          }
-        }
-      },
-=======
   int _bottomNavIndex = 0;
 
   final List<Widget> _listWidget = [
@@ -128,7 +74,6 @@ class _HomePageState extends State<HomePage> {
         items: _bottomNavBarItems,
         onTap: _onBottomNavTapped,
       ),
->>>>>>> 6533b0a7f588612547219c98de26dba5b48179c9
     );
   }
 
