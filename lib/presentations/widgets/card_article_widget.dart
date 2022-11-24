@@ -10,42 +10,97 @@ class CardArticle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        left: 20,
-        right: 20,
-      ),
-      child: Column(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height * 0.40,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(article.urlToImage!),
-                fit: BoxFit.cover,
-              ),
+    return Column(
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.height * 0.40,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(article.urlToImage!),
+              fit: BoxFit.cover,
             ),
           ),
-          const SizedBox(
-            height: 10,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 16,
+            right: 16,
           ),
-          Text(
-            article.title,
-            maxLines: 2,
-            style: textTheme.subtitle1?.copyWith(color: Colors.black),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const Icon(Icons.account_circle_rounded),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    article.author!,
+                    style: textTheme.bodySmall
+                        ?.copyWith(color: Colors.black.withAlpha(150)),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Icon(Icons.share),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Icon(Icons.bookmark_border_outlined),
+                ],
+              ),
+            ],
           ),
-          const SizedBox(
-            height: 5,
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 15, right: 15),
+          child: Column(
+            children: [
+              Text(
+                article.title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: textTheme.subtitle1?.copyWith(
+                    color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Text(
+                article.description!,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: textTheme.subtitle1?.copyWith(
+                    color: Colors.black.withAlpha(150), fontSize: 15),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '${DateTime.now().difference(article.publishedAt!).inHours}hours ago',
+                  style: textTheme.bodySmall?.copyWith(color: Colors.grey),
+                ),
+              ),
+            ],
           ),
-          Text(
-            article.author!,
-            style: textTheme.subtitle2?.copyWith(color: Colors.grey),
-          ),
-          const SizedBox(
-            height: 20,
-          )
-        ],
-      ),
+        ),
+        const SizedBox(
+          height: 20,
+        )
+      ],
     );
   }
 }
