@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
-                  NewsOfTheDay(article: article),
+                  // NewsOfTheDay(article: article),
                   BreakingNews(articles: article!),
                 ],
               ),
