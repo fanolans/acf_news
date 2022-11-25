@@ -44,7 +44,9 @@ class _ArticleListPageState extends State<ArticleListPage> {
           } else if (snapshot.hasError) {
             return Center(
               child: Material(
-                child: Text(snapshot.error.toString()),
+                child: Text(
+                  snapshot.error.toString(),
+                ),
               ),
             );
           } else {
