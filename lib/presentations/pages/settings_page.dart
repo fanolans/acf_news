@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import '../../utils/global_functions.dart';
 import '../../utils/styles.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+class OtherPage extends StatelessWidget {
+  const OtherPage({Key? key}) : super(key: key);
+  static const routeName = '/other';
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class SettingsPage extends StatelessWidget {
         title: Row(
           children: [
             Text(
-              'Settings',
+              'Other',
               style: GlobalFunctions.textTheme(context: context)
                   .headline5!
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
@@ -25,7 +26,7 @@ class SettingsPage extends StatelessWidget {
       ),
       body: const SafeArea(
         child: Center(
-          child: Text('Settings Page'),
+          child: Text('Other Page'),
         ),
       ),
     );
