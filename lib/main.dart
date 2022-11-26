@@ -1,6 +1,7 @@
 import 'package:acf_news/presentations/pages/article_detail_page.dart';
 import 'package:acf_news/presentations/pages/article_web_view.dart';
 import 'package:acf_news/presentations/pages/home_page.dart';
+import 'package:acf_news/presentations/pages/search_page.dart';
 import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: textTheme,
+        fontFamily: 'Inter',
         appBarTheme: const AppBarTheme(elevation: 0),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -48,6 +50,7 @@ class MyApp extends StatelessWidget {
         ArticleWebView.routeName: (context) => ArticleWebView(
               url: ModalRoute.of(context)?.settings.arguments as String,
             ),
+        SearchPage.routeName: (context) => const SearchPage(),
       },
     );
   }
