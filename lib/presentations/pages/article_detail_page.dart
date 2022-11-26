@@ -1,8 +1,8 @@
-import 'package:acf_news/presentations/widgets/customtag_newsoftheday_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/model/article_model.dart';
 import '../../utils/styles.dart';
+import '../widgets/custom_tag_widget.dart';
 import 'article_web_view.dart';
 
 class ArticleDetailPage extends StatelessWidget {
@@ -15,17 +15,37 @@ class ArticleDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
         padding: EdgeInsets.zero,
         child: Stack(
           children: [
+            Column(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.60,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(article.urlToImage!),
+                        fit: BoxFit.cover),
+                  ),
+                ),
+              ],
+            ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.60,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(article.urlToImage!),
-                    fit: BoxFit.cover),
+              padding: const EdgeInsets.all(15),
+              margin: EdgeInsetsDirectional.only(
+                  top: MediaQuery.of(context).size.height * 0.40),
+              child: CustomTag(
+                backgroundcolor: Colors.grey.withAlpha(100),
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      '${DateTime.now().difference(article.publishedAt!).inHours} hours ago',
+                      style: textTheme.bodySmall?.copyWith(color: Colors.white),
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
@@ -51,24 +71,34 @@ class ArticleDetailPage extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CustomTag(
-                          backgroundcolor: Colors.red.shade50,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
-                              children: [
-                                const Icon(Icons.account_circle_rounded),
-                                Text(
-                                  article.author!,
-                                  style: textTheme.bodySmall,
-                                )
-                              ],
+                            const Icon(Icons.account_circle_rounded),
+                            const SizedBox(
+                              width: 5,
                             ),
+                            Text(
+                              article.author!,
+                              style: textTheme.bodySmall,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.share),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Icon(Icons.bookmark_border_outlined),
                           ],
                         ),
                       ],
@@ -89,8 +119,8 @@ class ArticleDetailPage extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          article.content!,
-                          maxLines: 7,
+                          article.description!,
+                          maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: textTheme.subtitle1?.copyWith(
                               color: Colors.black.withAlpha(150), fontSize: 15),
