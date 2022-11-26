@@ -49,8 +49,9 @@ class CardArticle extends StatelessWidget {
                   ),
                   Text(
                     article.author!,
-                    style: textTheme.bodySmall
-                        ?.copyWith(color: Colors.black.withAlpha(150)),
+                    style: textTheme.bodySmall?.copyWith(
+                      color: Colors.black.withAlpha(150),
+                    ),
                   ),
                 ],
               ),
@@ -69,7 +70,7 @@ class CardArticle extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 5,
+          height: 10,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 15, right: 15),
