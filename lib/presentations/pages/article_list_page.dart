@@ -1,3 +1,4 @@
+import 'package:acf_news/presentations/pages/bookmark_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -61,6 +62,19 @@ class _ArticleListPageState extends State<ArticleListPage> {
 
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () => null,
+          icon: const Icon(Icons.menu_rounded),
+        ),
+        title: const Text('ACF News'),
+        actions: [
+          IconButton(
+            onPressed: () => const BookmarkPage(),
+            icon: const Icon(Icons.bookmarks_rounded),
+          ),
+        ],
+      ),
       body: _buildList(context),
     );
   }
