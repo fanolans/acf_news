@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     ),
     const SearchPage(),
     const BookmarkPage(),
-    const SettingsPage(),
+    const OtherPage(),
   ];
 
   final List<BottomNavigationBarItem> _bottomNavBarItems = [
@@ -51,8 +51,8 @@ class _HomePageState extends State<HomePage> {
       label: 'Bookmark',
     ),
     BottomNavigationBarItem(
-      icon: Icon(Platform.isIOS ? CupertinoIcons.settings : Icons.settings),
-      label: 'Settings',
+      icon: Icon(Platform.isIOS ? CupertinoIcons.list_bullet : Icons.list),
+      label: 'Others',
     ),
   ];
 
