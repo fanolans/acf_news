@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                 pinned: true,
                 floating: true,
                 bottom: TabBar(
-                  indicatorColor: kColorPrimary,
+                  indicatorColor: kColorSecondary,
                   tabs: [
                     _buildTabBarItem(
                         'Top Headline', Icons.new_releases_rounded),
@@ -65,11 +65,14 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(iconData),
+            Icon(iconData, color: kColorSecondary),
             const SizedBox(
               width: 12.0,
             ),
-            Text(title),
+            Text(
+              title,
+              style: const TextStyle(color: kColorSecondary),
+            ),
           ],
         ),
       );
