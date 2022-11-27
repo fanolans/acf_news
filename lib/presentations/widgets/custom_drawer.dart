@@ -1,3 +1,4 @@
+import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/constants.dart';
@@ -15,13 +16,18 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         children: [
           const UserAccountsDrawerHeader(
+            decoration: BoxDecoration(color: kColorSecondary),
             currentAccountPicture: CircleAvatar(
               backgroundImage: AssetImage(
                 '${assetImages}circle-avatar.png',
               ),
             ),
-            accountName: Text('Farrel Nolan'),
-            accountEmail: Text('mailenolan@gmail.com'),
+            accountName: Text(
+              'Farrel Nolan Syahdony',
+            ),
+            accountEmail: Text(
+              'mailenolan@gmail.com',
+            ),
           ),
           const ListTile(
             leading: Icon(Icons.account_circle_rounded),
