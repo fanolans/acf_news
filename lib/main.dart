@@ -1,6 +1,8 @@
 import 'package:acf_news/presentations/pages/article_detail_page.dart';
 import 'package:acf_news/presentations/pages/article_web_view.dart';
+import 'package:acf_news/presentations/pages/bookmark_page.dart';
 import 'package:acf_news/presentations/pages/home_page.dart';
+import 'package:acf_news/presentations/pages/other_page.dart';
 import 'package:acf_news/presentations/pages/search_page.dart';
 import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +21,8 @@ class MyApp extends StatelessWidget {
       title: 'ACF News',
       theme: ThemeData(
         colorScheme: Theme.of(context).colorScheme.copyWith(
-              primary: kColorPrimary,
-              onPrimary: Colors.black,
+              primary: kColorSecondary,
+              onPrimary: Colors.white,
               secondary: kColorSecondary,
             ),
         scaffoldBackgroundColor: Colors.white,
@@ -51,6 +53,8 @@ class MyApp extends StatelessWidget {
               url: ModalRoute.of(context)?.settings.arguments as String,
             ),
         SearchPage.routeName: (context) => const SearchPage(),
+        BookmarkPage.routeName: (context) => const BookmarkPage(),
+        OtherPage.routeName: (context) => const OtherPage(),
       },
     );
   }
