@@ -19,16 +19,8 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kColorPrimary,
-        title: Row(
-          children: [
-            Text(
-              'Find something news',
-              style: GlobalFunctions.textTheme(context: context)
-                  .headline5!
-                  .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
-            ),
-          ],
+        title: const Text(
+          'Find something news',
         ),
         elevation: 0,
       ),
@@ -44,7 +36,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget _searchBar() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       child: TextField(
         controller: _searchControl,
         onChanged: (_) => setState(() {}),
