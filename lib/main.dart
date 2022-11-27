@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
       title: 'ACF News',
       theme: ThemeData(
         colorScheme: Theme.of(context).colorScheme.copyWith(
-              primary: kColorSecondary,
-              onPrimary: Colors.white,
+              primary: kColorPrimary,
+              onPrimary: kColorSecondary,
               secondary: kColorSecondary,
             ),
         scaffoldBackgroundColor: Colors.white,
