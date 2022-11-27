@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Color kColorPrimary = Colors.white;
-Color kColorSecondary = const Color.fromARGB(255, 121, 0, 0);
+const Color kColorPrimary = Colors.white;
+const Color kColorSecondary = Color.fromARGB(255, 121, 0, 0);
 
 final textTheme = TextTheme(
   headline1: GoogleFonts.inter(
