@@ -15,6 +15,9 @@ class ArticleDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Description'),
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.zero,
         child: Stack(
