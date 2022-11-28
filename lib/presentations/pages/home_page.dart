@@ -40,10 +40,8 @@ class _HomePageState extends State<HomePage> {
                 bottom: TabBar(
                   indicatorColor: kColorSecondary,
                   tabs: [
-                    _buildTabBarItem(
-                        'Top Headline', Icons.new_releases_rounded),
-                    _buildTabBarItem(
-                        'Health', Icons.health_and_safety_outlined),
+                    _buildTabBarItem('Top Headline'),
+                    _buildTabBarItem('Health'),
                   ],
                 ),
               ),
@@ -60,15 +58,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildTabBarItem(String title, IconData iconData) => Padding(
+  Widget _buildTabBarItem(String title) => Padding(
         padding: const EdgeInsets.only(top: 4.0, bottom: 12.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(iconData, color: kColorSecondary),
-            const SizedBox(
-              width: 12.0,
-            ),
             Text(
               title,
               style: const TextStyle(color: kColorSecondary),
