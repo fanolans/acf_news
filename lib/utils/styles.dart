@@ -3,6 +3,57 @@ import 'package:google_fonts/google_fonts.dart';
 
 const Color kColorPrimary = Colors.white;
 const Color kColorSecondary = Color.fromARGB(255, 121, 0, 0);
+const Color darkPrimaryColor = Color(0xFF000000);
+const Color darkSecondaryColor = Colors.white;
+
+ThemeData lightTheme = ThemeData(
+  colorScheme: ThemeData.light().colorScheme.copyWith(
+        primary: kColorPrimary,
+        onPrimary: Colors.black,
+        secondary: kColorSecondary,
+      ),
+  scaffoldBackgroundColor: Colors.white,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+  textTheme: textTheme,
+  appBarTheme: const AppBarTheme(elevation: 0),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      primary: kColorSecondary,
+      onPrimary: Colors.white,
+      textStyle: const TextStyle(),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(0),
+        ),
+      ),
+    ),
+  ),
+);
+
+ThemeData darkTheme = ThemeData.dark().copyWith(
+  colorScheme: ThemeData.dark().colorScheme.copyWith(
+        primary: darkPrimaryColor,
+        onPrimary: Colors.white,
+        secondary: darkSecondaryColor,
+      ),
+  scaffoldBackgroundColor: darkPrimaryColor,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+  textTheme: textTheme,
+  appBarTheme:
+      const AppBarTheme(backgroundColor: darkPrimaryColor, elevation: 0),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      primary: kColorSecondary,
+      onPrimary: Colors.white,
+      textStyle: const TextStyle(),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(0),
+        ),
+      ),
+    ),
+  ),
+);
 
 final textTheme = TextTheme(
   headline1: GoogleFonts.inter(
