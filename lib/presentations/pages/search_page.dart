@@ -1,7 +1,4 @@
-import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
-
-import '../../utils/global_functions.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
