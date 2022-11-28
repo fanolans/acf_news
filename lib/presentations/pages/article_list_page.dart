@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/api/api_service.dart';
 import '../../data/model/article_model.dart';
-import '../widgets/card_article_widget.dart';
+import '../widgets/card_article_list_widget.dart';
 import '../widgets/platform_widget.dart';
 
 class ArticleListPage extends StatefulWidget {
@@ -28,8 +28,10 @@ class _ArticleListPageState extends State<ArticleListPage> {
       builder: (context, AsyncSnapshot<ArticlesResult> snapshot) {
         var state = snapshot.connectionState;
         if (state != ConnectionState.done) {
-          return const Center(
-            child: CircularProgressIndicator(),
+          return Center(
+            child: CircularProgressIndicator(
+              color: Theme.of(context).colorScheme.secondary,
+            ),
           );
         } else {
           if (snapshot.hasData) {
@@ -38,7 +40,7 @@ class _ArticleListPageState extends State<ArticleListPage> {
               itemCount: snapshot.data?.articles.length,
               itemBuilder: (context, index) {
                 var article = snapshot.data?.articles[index];
-                return CardArticle(article: article!);
+                return CardArticleList(article: article!);
               },
             );
           } else if (snapshot.hasError) {

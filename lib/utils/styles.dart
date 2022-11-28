@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const Color kColorPrimary = Colors.white;
-const Color kColorSecondary = Color.fromARGB(255, 121, 0, 0);
+const Color kColorSecondary = Color(0xFF000000);
+const Color kColorMaroon = Color.fromARGB(255, 121, 0, 0);
 const Color darkPrimaryColor = Color(0xFF000000);
 const Color darkSecondaryColor = Colors.white;
 
@@ -18,12 +19,12 @@ ThemeData lightTheme = ThemeData(
   appBarTheme: const AppBarTheme(elevation: 0),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      primary: kColorSecondary,
-      onPrimary: Colors.white,
+      backgroundColor: kColorMaroon,
+      foregroundColor: Colors.white,
       textStyle: const TextStyle(),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(0),
+          Radius.circular(40),
         ),
       ),
     ),
@@ -43,12 +44,12 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
       const AppBarTheme(backgroundColor: darkPrimaryColor, elevation: 0),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      primary: kColorSecondary,
-      onPrimary: Colors.white,
+      backgroundColor: kColorMaroon,
+      foregroundColor: Colors.white,
       textStyle: const TextStyle(),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(0),
+          Radius.circular(40),
         ),
       ),
     ),

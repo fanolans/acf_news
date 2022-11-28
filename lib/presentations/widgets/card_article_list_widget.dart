@@ -6,10 +6,10 @@ import '../../data/model/article_model.dart';
 import '../../data/provider/database_provider.dart';
 import '../pages/article_detail_page.dart';
 
-class CardArticle extends StatelessWidget {
+class CardArticleList extends StatelessWidget {
   final Article article;
 
-  const CardArticle({Key? key, required this.article}) : super(key: key);
+  const CardArticleList({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class CardArticle extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                    left: 5,
+                    left: 13,
                     right: 5,
                   ),
                   child: Row(
@@ -51,16 +51,16 @@ class CardArticle extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          IconButton(
-                            icon: const Icon(Icons.account_circle_rounded),
+                          Icon(
+                            Icons.account_circle_rounded,
                             color: Theme.of(context).colorScheme.secondary,
-                            onPressed: () => '',
+                          ),
+                          const SizedBox(
+                            width: 5,
                           ),
                           Text(
                             article.author!,
-                            style: textTheme.bodySmall?.copyWith(
-                              color: Colors.black.withAlpha(150),
-                            ),
+                            style: textTheme.bodySmall,
                           ),
                         ],
                       ),
@@ -72,9 +72,6 @@ class CardArticle extends StatelessWidget {
                             icon: const Icon(Icons.share),
                             color: Theme.of(context).colorScheme.secondary,
                             onPressed: () => '',
-                          ),
-                          const SizedBox(
-                            width: 5,
                           ),
                           isBookmarked
                               ? IconButton(
@@ -96,11 +93,8 @@ class CardArticle extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15),
+                  padding: const EdgeInsets.only(left: 16, right: 16),
                   child: InkWell(
                     onTap: () => Navigator.pushNamed(
                       context,
@@ -114,7 +108,8 @@ class CardArticle extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: textTheme.subtitle1?.copyWith(
-                              color: Colors.black, fontWeight: FontWeight.bold),
+                              color: Theme.of(context).colorScheme.secondary,
+                              fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(
                           height: 5,
@@ -124,7 +119,11 @@ class CardArticle extends StatelessWidget {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: textTheme.subtitle1?.copyWith(
-                              color: Colors.black.withAlpha(150), fontSize: 15),
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .secondary
+                                  .withAlpha(200),
+                              fontSize: 15),
                         ),
                         const SizedBox(
                           height: 5,
