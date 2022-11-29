@@ -1,3 +1,4 @@
+import 'package:acf_news/presentations/widgets/image_container_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/model/article_model.dart';
@@ -16,52 +17,54 @@ class ArticleDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Description'),
+        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
+      extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         padding: EdgeInsets.zero,
         child: Stack(
           children: [
             Column(
               children: [
-                Container(
+                ImageContainer(
+                  padding: const EdgeInsets.all(15),
+                  article: article,
                   height: MediaQuery.of(context).size.height * 0.60,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage(article.urlToImage!),
-                        fit: BoxFit.cover),
+                  width: double.infinity,
+                  urlToImage: article.urlToImage!,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomTag(
+                        backgroundcolor: Colors.grey.withAlpha(100),
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              '${DateTime.now().difference(article.publishedAt!).inHours} hours ago',
+                              style: textTheme.bodySmall
+                                  ?.copyWith(color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        article.title,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        style: textTheme.headline6?.copyWith(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      )
+                    ],
                   ),
                 ),
               ],
-            ),
-            Container(
-              padding: const EdgeInsets.all(15),
-              margin: EdgeInsetsDirectional.only(
-                  top: MediaQuery.of(context).size.height * 0.40),
-              child: CustomTag(
-                backgroundcolor: Colors.grey.withAlpha(100),
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      '${DateTime.now().difference(article.publishedAt!).inHours} hours ago',
-                      style: textTheme.bodySmall?.copyWith(color: Colors.white),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(15),
-              margin: EdgeInsetsDirectional.only(
-                  top: MediaQuery.of(context).size.height * 0.44),
-              child: Text(
-                article.title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: textTheme.headline5?.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.bold),
-              ),
             ),
             Container(
               margin: EdgeInsetsDirectional.only(
@@ -113,7 +116,7 @@ class ArticleDetailPage extends StatelessWidget {
                       children: [
                         Text(
                           article.title,
-                          maxLines: 2,
+                          maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: textTheme.subtitle1?.copyWith(
                               color: Colors.black, fontWeight: FontWeight.bold),
@@ -123,7 +126,7 @@ class ArticleDetailPage extends StatelessWidget {
                         ),
                         Text(
                           article.description!,
-                          maxLines: 3,
+                          maxLines: 5,
                           overflow: TextOverflow.ellipsis,
                           style: textTheme.subtitle1?.copyWith(
                               color: Colors.black.withAlpha(150), fontSize: 15),
