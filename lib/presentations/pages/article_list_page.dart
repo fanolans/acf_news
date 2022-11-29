@@ -1,4 +1,3 @@
-import 'package:acf_news/presentations/widgets/image_container_widget.dart';
 import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,6 @@ class ArticleListPage extends StatefulWidget {
 
 class _ArticleListPageState extends State<ArticleListPage> {
   late Future<ArticlesResult> _article;
-  late Article article;
 
   @override
   void initState() {
@@ -26,60 +24,71 @@ class _ArticleListPageState extends State<ArticleListPage> {
   }
 
   Widget _buildList(BuildContext context) {
-    return ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Breaking News',
-                style: textTheme.headline6?.copyWith(
-                    color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-              FutureBuilder(
-                future: _article,
-                builder: (context, AsyncSnapshot<ArticlesResult> snapshot) {
-                  var state = snapshot.connectionState;
-                  if (state != ConnectionState.done) {
-                    return Center(
-                      child: CircularProgressIndicator(
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                    );
-                  } else {
-                    if (snapshot.hasData) {
-                      return ListView.builder(
-                        scrollDirection: Axis.horizontal,
+    return Padding(
+      padding: const EdgeInsets.only(left: 15, right: 15),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Breaking News',
+              style: textTheme.headline5?.copyWith(
+                  color: Theme.of(context).colorScheme.secondary,
+                  fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            FutureBuilder(
+              future: _article,
+              builder: (context, AsyncSnapshot<ArticlesResult> snapshot) {
+                var state = snapshot.connectionState;
+                if (state != ConnectionState.done) {
+                  return Center(
+                    child: CircularProgressIndicator(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                  );
+                } else {
+                  if (snapshot.hasData) {
+                    return SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.55,
+                      child: ListView.builder(
                         shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
                         itemCount: snapshot.data?.articles.length,
                         itemBuilder: (context, index) {
                           var article = snapshot.data?.articles[index];
-                          return CardBreakingNews(article: article!);
+                          return Container(
+                            margin: EdgeInsets.only(right: 10),
+                            child: CardArticleList(
+                              article: article!,
+                            ),
+                          );
                         },
-                      );
-                    } else if (snapshot.hasError) {
-                      return Center(
-                        child: Material(
-                          child: Text(
-                            snapshot.error.toString(),
-                          ),
+                      ),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Material(
+                        child: Text(
+                          snapshot.error.toString(),
                         ),
-                      );
-                    } else {
-                      return const Material(
-                        child: Text(''),
-                      );
-                    }
+                      ),
+                    );
+                  } else {
+                    return const Material(
+                      child: Text(''),
+                    );
                   }
-                },
-              )
-            ],
-          ),
-        )
-      ],
+                }
+              },
+            )
+          ],
+        ),
+      ),
     );
   }
 
@@ -100,33 +109,6 @@ class _ArticleListPageState extends State<ArticleListPage> {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,
-    );
-  }
-}
-
-class CardBreakingNews extends StatelessWidget {
-  const CardBreakingNews({
-    Key? key,
-    required this.article,
-  }) : super(key: key);
-
-  final Article article;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // article: article,
-      height: MediaQuery.of(context).size.height * 0.50,
-      width: MediaQuery.of(context).size.width * 0.70,
-      // padding: EdgeInsets.zero,
-      // urlToImage: article.urlToImage!,
-      // child: Column(),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(article.urlToImage!),
-          fit: BoxFit.cover,
-        ),
-      ),
     );
   }
 }

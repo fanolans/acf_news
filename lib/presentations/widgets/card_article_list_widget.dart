@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,122 +29,84 @@ class CardArticleList extends StatelessWidget {
                     ArticleDetailPage.routeName,
                     arguments: article,
                   ),
-                  child: Container(
-                    height: MediaQuery.of(context).size.height * 0.40,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(article.urlToImage!),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 13,
-                    right: 5,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Stack(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.account_circle_rounded,
-                            color: Theme.of(context).colorScheme.secondary,
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.55,
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          image: DecorationImage(
+                            image: NetworkImage(article.urlToImage!),
+                            fit: BoxFit.cover,
                           ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            article.author!,
-                            style: textTheme.bodySmall,
-                          ),
-                        ],
+                        ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.share),
-                            color: Theme.of(context).colorScheme.secondary,
-                            onPressed: () => '',
-                          ),
-                          isBookmarked
-                              ? IconButton(
-                                  icon: const Icon(Icons.bookmark),
-                                  color:
-                                      Theme.of(context).colorScheme.secondary,
-                                  onPressed: () =>
-                                      provider.removeBookmark(article.url),
-                                )
-                              : IconButton(
-                                  icon: const Icon(Icons.bookmark_border),
-                                  color:
-                                      Theme.of(context).colorScheme.secondary,
-                                  onPressed: () =>
-                                      provider.addBookmark(article),
+                      Container(
+                        margin: EdgeInsetsDirectional.only(
+                            top: MediaQuery.of(context).size.height * 0.29),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30)),
+                        child: ClipRect(
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(
+                              sigmaX: 5,
+                              sigmaY: 5,
+                            ),
+                            child: Container(
+                              alignment: Alignment.center,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.255,
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 20, right: 20, top: 20),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      article.title,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: textTheme.headline6?.copyWith(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      article.description!,
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: textTheme.subtitle1?.copyWith(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .secondary
+                                              .withAlpha(600),
+                                          fontSize: 15),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        '${DateTime.now().difference(article.publishedAt!).inHours} hours ago',
+                                        style: textTheme.bodySmall
+                                            ?.copyWith(color: Colors.white),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                        ],
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 16),
-                  child: InkWell(
-                    onTap: () => Navigator.pushNamed(
-                      context,
-                      ArticleDetailPage.routeName,
-                      arguments: article,
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          article.title,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: textTheme.subtitle1?.copyWith(
-                              color: Theme.of(context).colorScheme.secondary,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          article.description!,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: textTheme.subtitle1?.copyWith(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .secondary
-                                  .withAlpha(200),
-                              fontSize: 15),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            '${DateTime.now().difference(article.publishedAt!).inHours} hours ago',
-                            style: textTheme.bodySmall
-                                ?.copyWith(color: Colors.grey),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                )
               ],
             );
           },
@@ -151,3 +115,36 @@ class CardArticleList extends StatelessWidget {
     );
   }
 }
+
+
+
+// Column(
+//                                 mainAxisAlignment: MainAxisAlignment.end,
+//                                 crossAxisAlignment: CrossAxisAlignment.end,
+//                                 children: [
+//                                   Text(
+//                                     article.title,
+//                                     maxLines: 2,
+//                                     overflow: TextOverflow.ellipsis,
+//                                     style: textTheme.headline6?.copyWith(
+//                                         color: Colors.white,
+//                                         fontWeight: FontWeight.bold),
+//                                   ),
+//                                   Text(
+//                                     article.description!,
+//                                     maxLines: 3,
+//                                     overflow: TextOverflow.ellipsis,
+//                                     style: textTheme.subtitle1?.copyWith(
+//                                       color: Colors.grey.shade300,
+//                                       fontSize: 15,
+//                                     ),
+//                                   ),
+//                                   Align(
+//                                     alignment: Alignment.centerLeft,
+//                                     child: Text(
+//                                       '${DateTime.now().difference(article.publishedAt!).inHours} hours ago',
+//                                       style: textTheme.bodySmall?.copyWith(
+//                                           color: Colors.grey.shade100),
+//                                     ),
+//                                   ),
+//                                 ])
