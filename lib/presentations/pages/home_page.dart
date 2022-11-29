@@ -16,42 +16,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        drawer: const CustomDrawer(),
-        body: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return [
-              SliverAppBar(
-                pinned: true,
-                title: const Text('ACF News'),
-                actions: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, SearchPage.routeName);
-                    },
-                    icon: const Icon(Icons.search),
-                  )
-                ],
-                bottom: TabBar(
-                  indicatorColor: Theme.of(context).colorScheme.secondary,
-                  tabs: [
-                    _buildTabBarItem('Top Headline'),
-                    _buildTabBarItem('Health'),
-                  ],
-                ),
-              ),
-            ];
-          },
-          body: const TabBarView(
-            children: [
-              ArticleListPage(),
-              ArticleListPage(),
-            ],
-          ),
-        ),
+    return Scaffold(
+      drawer: const CustomDrawer(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, SearchPage.routeName);
+            },
+            icon: const Icon(Icons.search),
+          )
+        ],
       ),
+      body: ArticleListPage(),
     );
   }
 
@@ -68,3 +45,37 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 }
+
+
+
+// NestedScrollView(
+//         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+//           return [
+//             SliverAppBar(
+//               pinned: true,
+//               title: const Text('ACF News'),
+//               actions: [
+//                 IconButton(
+//                   onPressed: () {
+//                     Navigator.pushNamed(context, SearchPage.routeName);
+//                   },
+//                   icon: const Icon(Icons.search),
+//                 )
+//               ],
+//               bottom: TabBar(
+//                 indicatorColor: Theme.of(context).colorScheme.secondary,
+//                 tabs: [
+//                   _buildTabBarItem('Top Headline'),
+//                   _buildTabBarItem('Health'),
+//                 ],
+//               ),
+//             ),
+//           ];
+//         },
+//         body: const TabBarView(
+//           children: [
+//             ArticleListPage(),
+//             ArticleListPage(),
+//           ],
+//         ),
+//       ),
