@@ -2,9 +2,7 @@ import 'package:acf_news/presentations/widgets/image_container_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/model/article_model.dart';
-import '../../utils/styles.dart';
-import '../widgets/custom_tag_widget.dart';
-import 'article_web_view.dart';
+import '../widgets/card_article_detail.dart';
 
 class ArticleDetailPage extends StatelessWidget {
   static const routeName = '/article_detail';
@@ -21,6 +19,7 @@ class ArticleDetailPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
+<<<<<<< HEAD
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         padding: EdgeInsets.zero,
@@ -156,6 +155,9 @@ class ArticleDetailPage extends StatelessWidget {
           ],
         ),
       ),
+=======
+      body: CardArticleDetail(article: article),
+>>>>>>> 24611ea734e36dded458201ca471af6533821b37
     );
   }
 }

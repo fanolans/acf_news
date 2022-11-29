@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return [
               SliverAppBar(
+                pinned: true,
                 title: const Text('ACF News'),
                 actions: [
                   IconButton(
@@ -35,10 +36,8 @@ class _HomePageState extends State<HomePage> {
                     icon: const Icon(Icons.search),
                   )
                 ],
-                pinned: true,
-                floating: true,
                 bottom: TabBar(
-                  indicatorColor: kColorSecondary,
+                  indicatorColor: Theme.of(context).colorScheme.secondary,
                   tabs: [
                     _buildTabBarItem('Top Headline'),
                     _buildTabBarItem('Health'),
@@ -65,7 +64,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               title,
-              style: const TextStyle(color: kColorSecondary),
+              style: TextStyle(color: Theme.of(context).colorScheme.secondary),
             ),
           ],
         ),

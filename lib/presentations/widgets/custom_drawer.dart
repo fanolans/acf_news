@@ -35,26 +35,37 @@ class CustomDrawer extends StatelessWidget {
         return Drawer(
           child: Column(
             children: [
-              const UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: kColorSecondary),
-                currentAccountPicture: CircleAvatar(
+              UserAccountsDrawerHeader(
+                currentAccountPicture: const CircleAvatar(
                   backgroundImage: AssetImage(
                     '${assetImages}circle-avatar.png',
                   ),
                 ),
                 accountName: Text(
                   'Farrel Nolan Syahdony',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
                 ),
                 accountEmail: Text(
                   'mailenolan@gmail.com',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
                 ),
               ),
-              const ListTile(
-                leading: Icon(Icons.account_circle_rounded),
-                title: Text('Account'),
+              ListTile(
+                leading: Icon(
+                  Icons.account_circle_rounded,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+                title: const Text('Account'),
               ),
               ListTile(
-                leading: const Icon(Icons.bookmark_added_rounded),
+                leading: Icon(
+                  Icons.bookmark_added_rounded,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
                 title: const Text('My Bookmarks'),
                 onTap: () {
                   Navigator.pop(context);
@@ -62,7 +73,10 @@ class CustomDrawer extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.notifications_active),
+                leading: Icon(
+                  Icons.notifications_active,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
                 title: const Text('Notification'),
                 trailing: Consumer<SchedulingProvider>(
                   builder: (context, scheduled, _) {
@@ -81,7 +95,10 @@ class CustomDrawer extends StatelessWidget {
                 ),
               ),
               ListTile(
-                leading: const Icon(Icons.dark_mode_outlined),
+                leading: Icon(
+                  Icons.dark_mode_outlined,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
                 title: const Text('Dark Mode'),
                 trailing: Consumer<PreferencesProvider>(
                     builder: (context, provider, child) {
@@ -94,14 +111,20 @@ class CustomDrawer extends StatelessWidget {
                 }),
               ),
               ListTile(
-                leading: const Icon(Icons.info_outline),
+                leading: Icon(
+                  Icons.info_outline,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
                 title: const Text('About'),
                 onTap: () {
                   Navigator.pushNamed(context, OtherPage.routeName);
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.logout_rounded),
+                leading: Icon(
+                  Icons.logout_rounded,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
                 title: const Text('Logout'),
                 onTap: () {
                   Navigator.pushNamed(context, OtherPage.routeName);

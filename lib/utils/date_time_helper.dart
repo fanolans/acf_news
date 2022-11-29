@@ -14,7 +14,9 @@ class DateTimeHelper {
     var resultToday = completeFormat.parseStrict(todayDateAndTime);
 
     // Tomorrow Format
-    var formatted = resultToday.add(const Duration(days: 1));
+    var formatted = resultToday.add(
+      const Duration(hours: 1),
+    );
     final tomorrowDate = dateFormat.format(formatted);
     final tomorrowDateAndTime = "$tomorrowDate $timeSpecific";
     var resultTomorrow = completeFormat.parseStrict(tomorrowDateAndTime);
