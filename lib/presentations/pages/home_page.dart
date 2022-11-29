@@ -1,7 +1,5 @@
 import 'package:acf_news/presentations/pages/article_list_page.dart';
 import 'package:acf_news/presentations/pages/search_page.dart';
-import 'package:acf_news/presentations/widgets/category_card.dart';
-import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/custom_drawer.dart';

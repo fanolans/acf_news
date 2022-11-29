@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:acf_news/presentations/widgets/platform_widget.dart';
-import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

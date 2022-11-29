@@ -1,3 +1,4 @@
+import 'package:acf_news/presentations/widgets/image_container_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,45 +29,44 @@ class CardArticleDetail extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Container(
+                      ImageContainer(
+                        article: article,
                         height: MediaQuery.of(context).size.height * 0.60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(article.urlToImage!),
-                              fit: BoxFit.cover),
+                        width: double.infinity,
+                        urlToImage: article.urlToImage!,
+                        padding: const EdgeInsets.all(15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CustomTag(
+                              backgroundcolor: Colors.grey.withAlpha(100),
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    '${DateTime.now().difference(article.publishedAt!).inHours} hours ago',
+                                    style: textTheme.bodySmall
+                                        ?.copyWith(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              article.title,
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                              style: textTheme.headline6?.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            )
+                          ],
                         ),
                       ),
                     ],
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(15),
-                    margin: EdgeInsetsDirectional.only(
-                        top: MediaQuery.of(context).size.height * 0.40),
-                    child: CustomTag(
-                      backgroundcolor: Colors.grey.withAlpha(100),
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            '${DateTime.now().difference(article.publishedAt!).inHours} hours ago',
-                            style: textTheme.bodySmall
-                                ?.copyWith(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(15),
-                    margin: EdgeInsetsDirectional.only(
-                        top: MediaQuery.of(context).size.height * 0.44),
-                    child: Text(
-                      article.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: textTheme.headline5?.copyWith(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
                   ),
                   Container(
                     margin: EdgeInsetsDirectional.only(
@@ -138,7 +138,7 @@ class CardArticleDetail extends StatelessWidget {
                             children: [
                               Text(
                                 article.title,
-                                maxLines: 2,
+                                maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.subtitle1?.copyWith(
                                     color:
@@ -150,7 +150,7 @@ class CardArticleDetail extends StatelessWidget {
                               ),
                               Text(
                                 article.description!,
-                                maxLines: 3,
+                                maxLines: 5,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.subtitle1?.copyWith(
                                     color: Theme.of(context)

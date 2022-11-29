@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:acf_news/data/api/api_service.dart';
 import 'package:acf_news/presentations/pages/article_detail_page.dart';
-import 'package:acf_news/presentations/pages/article_list_page.dart';
 import 'package:acf_news/presentations/pages/article_web_view.dart';
 import 'package:acf_news/presentations/pages/bookmark_page.dart';
 import 'package:acf_news/presentations/pages/home_page.dart';
