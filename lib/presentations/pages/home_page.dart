@@ -37,15 +37,19 @@ class _HomePageState extends State<HomePage> {
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
-                  // NewsOfTheDay(article: article),
-                  BreakingNews(articles: article!),
+                  NewsOfTheDay(
+                    article: article!.first,
+                  ),
+                  BreakingNews(articles: article),
                 ],
               ),
             );
           } else if (snapshot.hasError) {
             return Center(
               child: Material(
-                child: Text(snapshot.error.toString()),
+                child: Text(
+                  snapshot.error.toString(),
+                ),
               ),
             );
           } else {
