@@ -1,3 +1,4 @@
+import 'package:acf_news/presentations/pages/category_news_page.dart';
 import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,19 +25,31 @@ class _ArticleListPageState extends State<ArticleListPage> {
   }
 
   Widget _buildList(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15),
+    List<String> tabs = [
+      'Business',
+      'Entertaiment',
+      'Health',
+      'Science',
+      'Sports',
+      'Technology'
+    ];
+    return DefaultTabController(
+      initialIndex: 0,
+      length: tabs.length,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              'Breaking News',
-              style: textTheme.headline5?.copyWith(
-                  color: Theme.of(context).colorScheme.secondary,
-                  fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              child: Text(
+                'Breaking News',
+                style: textTheme.headline5?.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
             const SizedBox(
               height: 10,
@@ -53,21 +66,24 @@ class _ArticleListPageState extends State<ArticleListPage> {
                   );
                 } else {
                   if (snapshot.hasData) {
-                    return SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.55,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: snapshot.data?.articles.length,
-                        itemBuilder: (context, index) {
-                          var article = snapshot.data?.articles[index];
-                          return Container(
-                            margin: EdgeInsets.only(right: 10),
-                            child: CardArticleList(
-                              article: article!,
-                            ),
-                          );
-                        },
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.55,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: snapshot.data?.articles.length,
+                          itemBuilder: (context, index) {
+                            var article = snapshot.data?.articles[index];
+                            return Container(
+                              margin: const EdgeInsets.only(right: 15),
+                              child: CardArticleList(
+                                article: article!,
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     );
                   } else if (snapshot.hasError) {
@@ -85,7 +101,11 @@ class _ArticleListPageState extends State<ArticleListPage> {
                   }
                 }
               },
-            )
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            CategoryNews(tabs: tabs),
           ],
         ),
       ),

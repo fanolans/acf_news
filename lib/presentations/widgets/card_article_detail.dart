@@ -149,7 +149,7 @@ class CardArticleDetail extends StatelessWidget {
                                 height: 10,
                               ),
                               Text(
-                                article.description!,
+                                article.content!,
                                 maxLines: 5,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.subtitle1?.copyWith(
