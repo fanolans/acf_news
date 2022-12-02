@@ -25,90 +25,50 @@ class _ArticleListPageState extends State<ArticleListPage> {
   }
 
   Widget _buildList(BuildContext context) {
-    List<String> tabs = [
-      'Business',
-      'Entertaiment',
-      'Health',
-      'Science',
-      'Sports',
-      'Technology'
-    ];
-    return DefaultTabController(
-      initialIndex: 0,
-      length: tabs.length,
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Text(
-                'Breaking News',
-                style: textTheme.headline5?.copyWith(
-                    color: Theme.of(context).colorScheme.secondary,
-                    fontWeight: FontWeight.bold),
-              ),
+    return FutureBuilder(
+      future: _article,
+      builder: (context, AsyncSnapshot<ArticlesResult> snapshot) {
+        var state = snapshot.connectionState;
+        if (state != ConnectionState.done) {
+          return Center(
+            child: CircularProgressIndicator(
+              color: Theme.of(context).colorScheme.secondary,
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            FutureBuilder(
-              future: _article,
-              builder: (context, AsyncSnapshot<ArticlesResult> snapshot) {
-                var state = snapshot.connectionState;
-                if (state != ConnectionState.done) {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      color: Theme.of(context).colorScheme.secondary,
+          );
+        } else {
+          if (snapshot.hasData) {
+            return Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: snapshot.data?.articles.length,
+                itemBuilder: (context, index) {
+                  var article = snapshot.data?.articles[index];
+                  return Container(
+                    margin: const EdgeInsets.only(right: 15),
+                    child: CardArticleList(
+                      article: article!,
                     ),
                   );
-                } else {
-                  if (snapshot.hasData) {
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 15),
-                      child: SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.55,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: snapshot.data?.articles.length,
-                          itemBuilder: (context, index) {
-                            var article = snapshot.data?.articles[index];
-                            return Container(
-                              margin: const EdgeInsets.only(right: 15),
-                              child: CardArticleList(
-                                article: article!,
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    );
-                  } else if (snapshot.hasError) {
-                    return Center(
-                      child: Material(
-                        child: Text(
-                          snapshot.error.toString(),
-                        ),
-                      ),
-                    );
-                  } else {
-                    return const Material(
-                      child: Text(''),
-                    );
-                  }
-                }
-              },
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            CategoryNews(tabs: tabs),
-          ],
-        ),
-      ),
+                },
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Material(
+                child: Text(
+                  snapshot.error.toString(),
+                ),
+              ),
+            );
+          } else {
+            return const Material(
+              child: Text(''),
+            );
+          }
+        }
+      },
     );
   }
 
