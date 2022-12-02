@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../../utils/state_result.dart';
@@ -35,6 +37,10 @@ class NewsProvider extends ChangeNotifier {
         notifyListeners();
         return _articlesResult = article;
       }
+    } on SocketException {
+      _state = StateResult.noConnection;
+      notifyListeners();
+      return _message = 'Please check your connection.';
     } catch (e) {
       _state = StateResult.error;
       notifyListeners();

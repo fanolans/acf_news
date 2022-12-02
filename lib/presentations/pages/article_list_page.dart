@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/api/api_service.dart';
 import '../../data/model/article_model.dart';
+import '../widgets/application_error_widget.dart';
 import '../widgets/card_article_list_widget.dart';
 import '../widgets/platform_widget.dart';
 
@@ -39,27 +40,28 @@ class _ArticleListPageState extends State<ArticleListPage> {
           if (snapshot.hasData) {
             return Padding(
               padding: const EdgeInsets.only(left: 15),
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: snapshot.data?.articles.length,
-                itemBuilder: (context, index) {
-                  var article = snapshot.data?.articles[index];
-                  return Container(
-                    margin: const EdgeInsets.only(right: 15),
-                    child: CardArticleList(
-                      article: article!,
-                    ),
-                  );
-                },
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.55,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: snapshot.data?.articles.length,
+                  itemBuilder: (context, index) {
+                    var article = snapshot.data?.articles[index];
+                    return Container(
+                      margin: const EdgeInsets.only(right: 15),
+                      child: CardArticleList(
+                        article: article!,
+                      ),
+                    );
+                  },
+                ),
               ),
             );
           } else if (snapshot.hasError) {
-            return Center(
+            return const Center(
               child: Material(
-                child: Text(
-                  snapshot.error.toString(),
-                ),
+                child: ApplicationError(),
               ),
             );
           } else {

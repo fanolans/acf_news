@@ -106,13 +106,13 @@ class ApiServices {
     }
   }
 
-  Future<ArticleSearch> searchArticles(String query) async {
+  Future<ArticlesResult> searchArticles(String query) async {
     final response = await http.get(
       Uri.parse(
-          "${_baseUrl}top-headlines?country=$_country&category=general&apiKey=$_apiKey"),
+          "${_baseUrl}everything?q=Apple&from=2022-12-02&sortBy=popularity&apiKey=$_apiKey"),
     );
     if (response.statusCode == 200) {
-      return ArticleSearch.fromJson(
+      return ArticlesResult.fromJson(
         json.decode(response.body),
       );
     } else {

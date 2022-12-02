@@ -89,7 +89,7 @@ class ArticleSearch {
         error: json["error"],
         founded: json["founded"],
         articles: List<Article>.from(
-          json["restaurants"].map(
+          json["articles"].map(
             (x) => Article.fromJson(x),
           ),
         ),
@@ -98,7 +98,7 @@ class ArticleSearch {
   Map<String, dynamic> toJson() => {
         "error": error,
         "founded": founded,
-        "restaurants": List<dynamic>.from(
+        "articles": List<dynamic>.from(
           articles.map(
             (x) => x.toJson(),
           ),

@@ -5,24 +5,24 @@ import 'package:flutter/foundation.dart';
 
 import '../../utils/state_result.dart';
 
-class RestaurantSearchProvider extends ChangeNotifier {
+class SearchProvider extends ChangeNotifier {
   final ApiServices apiService;
 
-  RestaurantSearchProvider({required this.apiService}) {
-    fetchQueryRestaurant(query);
+  SearchProvider({required this.apiService}) {
+    fetchQueryArticle(query);
   }
 
-  ArticleSearch? _articleList;
+  ArticlesResult? _articleList;
   StateResult? _state;
   String _message = '';
   String _query = '';
 
   String get message => _message;
   String get query => _query;
-  ArticleSearch? get result => _articleList;
+  ArticlesResult? get result => _articleList;
   StateResult? get state => _state;
 
-  Future<dynamic> fetchQueryRestaurant(String query) async {
+  Future<dynamic> fetchQueryArticle(String query) async {
     try {
       if (query.isNotEmpty) {
         _state = StateResult.loading;
