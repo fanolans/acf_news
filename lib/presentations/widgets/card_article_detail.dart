@@ -61,7 +61,7 @@ class CardArticleDetail extends StatelessWidget {
                                   fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(
-                              height: 20,
+                              height: 30,
                             )
                           ],
                         ),
