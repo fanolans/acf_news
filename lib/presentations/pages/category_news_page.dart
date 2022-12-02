@@ -1,7 +1,6 @@
 import 'package:acf_news/data/api/api_service.dart';
 import 'package:acf_news/data/model/article_model.dart';
 import 'package:acf_news/presentations/widgets/card_category_news.dart';
-import 'package:acf_news/presentations/widgets/category_card.dart';
 import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -63,20 +62,20 @@ class _CategoryNewsState extends State<CategoryNews> {
                         );
                       } else {
                         if (snapshot.hasData) {
-                          return Padding(
-                            padding: const EdgeInsets.only(left: 15),
-                            child: SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.55,
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: snapshot.data?.articles.length,
-                                itemBuilder: (context, index) {
-                                  var article = snapshot.data?.articles[index];
-                                  return CategoryNewsCard(
+                          return SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.55,
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: snapshot.data?.articles.length,
+                              itemBuilder: (context, index) {
+                                var article = snapshot.data?.articles[index];
+                                return Padding(
+                                  padding: const EdgeInsets.only(left: 15),
+                                  child: CategoryNewsCard(
                                     article: article!,
-                                  );
-                                },
-                              ),
+                                  ),
+                                );
+                              },
                             ),
                           );
                         } else if (snapshot.hasError) {

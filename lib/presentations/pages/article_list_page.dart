@@ -1,5 +1,3 @@
-import 'package:acf_news/presentations/pages/category_news_page.dart';
-import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

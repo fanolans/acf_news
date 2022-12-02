@@ -6,6 +6,7 @@ import 'package:acf_news/presentations/pages/article_web_view.dart';
 import 'package:acf_news/presentations/pages/bookmark_page.dart';
 import 'package:acf_news/presentations/pages/home_page.dart';
 import 'package:acf_news/presentations/pages/search_page.dart';
+import 'package:acf_news/presentations/pages/sign_in_page.dart';
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +91,7 @@ class MyApp extends StatelessWidget {
               );
             },
             navigatorKey: navigatorKey,
-            initialRoute: HomePage.routeName,
+            initialRoute: SignInPage.routeName,
             routes: {
               HomePage.routeName: (context) => const HomePage(),
               SearchPage.routeName: (context) => const SearchPage(),
@@ -102,6 +103,7 @@ class MyApp extends StatelessWidget {
               ArticleWebView.routeName: (context) => ArticleWebView(
                     url: ModalRoute.of(context)?.settings.arguments as String,
                   ),
+              SignInPage.routeName: (context) => const SignInPage(),
             },
           );
         },

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:acf_news/presentations/pages/sign_in_page.dart';
 import 'package:acf_news/presentations/widgets/platform_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -126,7 +127,7 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 title: const Text('Logout'),
                 onTap: () {
-                  Navigator.pushNamed(context, OtherPage.routeName);
+                  Navigator.pushNamed(context, SignInPage.routeName);
                 },
               ),
             ],
