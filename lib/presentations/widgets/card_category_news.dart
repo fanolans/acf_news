@@ -53,7 +53,8 @@ class CategoryNewsCard extends StatelessWidget {
                               maxLines: 2,
                               overflow: TextOverflow.clip,
                               style: textTheme.subtitle2?.copyWith(
-                                  color: Colors.black,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                   fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(
@@ -71,8 +72,10 @@ class CategoryNewsCard extends StatelessWidget {
                                 ),
                                 Text(
                                   '${DateTime.now().difference(article.publishedAt!).inHours} hours ago',
-                                  style: textTheme.bodySmall
-                                      ?.copyWith(color: Colors.black),
+                                  style: textTheme.bodySmall?.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary),
                                 ),
                               ],
                             )

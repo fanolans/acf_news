@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            pinned: true,
             floating: true,
             actions: [
               IconButton(
