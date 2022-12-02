@@ -6,55 +6,60 @@ const Color kColorSecondary = Color(0xFF000000);
 const Color kColorMaroon = Color.fromARGB(255, 121, 0, 0);
 const Color darkPrimaryColor = Color(0xFF000000);
 const Color darkSecondaryColor = Colors.white;
+const Color kcategoryColor = Colors.black26;
+const Color kColorNavi = Color(0x002e4392);
+const Color kColorButton = Color(0x006CC1E3);
 
 ThemeData lightTheme = ThemeData(
-  colorScheme: ThemeData.light().colorScheme.copyWith(
-        primary: kColorPrimary,
-        onPrimary: Colors.black,
-        secondary: kColorSecondary,
-      ),
-  scaffoldBackgroundColor: Colors.white,
-  visualDensity: VisualDensity.adaptivePlatformDensity,
-  textTheme: textTheme,
-  appBarTheme: const AppBarTheme(elevation: 0),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: kColorMaroon,
-      foregroundColor: Colors.white,
-      textStyle: const TextStyle(),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(40),
+    colorScheme: ThemeData.light().colorScheme.copyWith(
+          primary: kColorPrimary,
+          onPrimary: kColorMaroon,
+          secondary: kColorSecondary,
+        ),
+    scaffoldBackgroundColor: Colors.white,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    textTheme: textTheme,
+    appBarTheme: const AppBarTheme(elevation: 0),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: kColorMaroon,
+        foregroundColor: Colors.white,
+        textStyle: const TextStyle(),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(40),
+          ),
         ),
       ),
     ),
-  ),
-);
+    tabBarTheme: ThemeData.light().tabBarTheme.copyWith(
+        labelColor: kColorNavi, unselectedLabelColor: Colors.black26));
 
 ThemeData darkTheme = ThemeData.dark().copyWith(
-  colorScheme: ThemeData.dark().colorScheme.copyWith(
-        primary: darkPrimaryColor,
-        onPrimary: Colors.white,
-        secondary: darkSecondaryColor,
-      ),
-  scaffoldBackgroundColor: darkPrimaryColor,
-  visualDensity: VisualDensity.adaptivePlatformDensity,
-  textTheme: textTheme,
-  appBarTheme:
-      const AppBarTheme(backgroundColor: darkPrimaryColor, elevation: 0),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: kColorMaroon,
-      foregroundColor: Colors.white,
-      textStyle: const TextStyle(),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(40),
+    colorScheme: ThemeData.dark().colorScheme.copyWith(
+          primary: darkPrimaryColor,
+          onPrimary: Colors.white,
+          secondary: darkSecondaryColor,
+        ),
+    scaffoldBackgroundColor: darkPrimaryColor,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    textTheme: textTheme,
+    appBarTheme:
+        const AppBarTheme(backgroundColor: darkPrimaryColor, elevation: 0),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: kColorMaroon,
+        foregroundColor: Colors.white,
+        textStyle: const TextStyle(),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(40),
+          ),
         ),
       ),
     ),
-  ),
-);
+    tabBarTheme: ThemeData.dark().tabBarTheme.copyWith(
+        labelColor: kColorButton, unselectedLabelColor: Colors.black26));
 
 final textTheme = TextTheme(
   headline1: GoogleFonts.inter(

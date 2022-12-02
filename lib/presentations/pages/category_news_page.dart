@@ -25,7 +25,7 @@ class _CategoryNewsState extends State<CategoryNews> {
   @override
   void initState() {
     super.initState();
-    _article = ApiServices().topHeadlines();
+    _article = ApiServices().getHealth();
   }
 
   @override
@@ -34,8 +34,9 @@ class _CategoryNewsState extends State<CategoryNews> {
       children: [
         TabBar(
           isScrollable: true,
-          labelColor: kColorMaroon,
-          unselectedLabelColor: Colors.black26,
+          labelColor: Theme.of(context).colorScheme.onPrimary,
+          unselectedLabelColor:
+              Theme.of(context).tabBarTheme.unselectedLabelColor,
           indicatorColor: kColorMaroon,
           tabs: widget.tabs
               .map(
