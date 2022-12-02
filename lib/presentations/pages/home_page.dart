@@ -28,22 +28,9 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: ArticleListPage(),
+      body: const ArticleListPage(),
     );
   }
-
-  Widget _buildTabBarItem(String title) => Padding(
-        padding: const EdgeInsets.only(top: 4.0, bottom: 12.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              title,
-              style: TextStyle(color: Theme.of(context).colorScheme.secondary),
-            ),
-          ],
-        ),
-      );
 }
 
 

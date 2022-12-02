@@ -73,3 +73,35 @@ class Article {
         "content": content,
       };
 }
+
+class ArticleSearch {
+  ArticleSearch({
+    required this.error,
+    required this.founded,
+    required this.articles,
+  });
+
+  bool error;
+  int founded;
+  List<Article> articles;
+
+  factory ArticleSearch.fromJson(Map<String, dynamic> json) => ArticleSearch(
+        error: json["error"],
+        founded: json["founded"],
+        articles: List<Article>.from(
+          json["restaurants"].map(
+            (x) => Article.fromJson(x),
+          ),
+        ),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "error": error,
+        "founded": founded,
+        "restaurants": List<dynamic>.from(
+          articles.map(
+            (x) => x.toJson(),
+          ),
+        ),
+      };
+}
