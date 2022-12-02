@@ -21,6 +21,7 @@ import 'data/provider/database_provider.dart';
 import 'data/provider/news_provider.dart';
 import 'data/provider/preferences_provider.dart';
 import 'data/provider/scheduling_provider.dart';
+import 'data/provider/search_provider.dart';
 import 'utils/background_service.dart';
 import 'utils/navigation.dart';
 import 'utils/notification_helper.dart';
@@ -71,6 +72,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => DatabaseProvider(
             databaseHelper: DatabaseHelper(),
+          ),
+        ),
+        ChangeNotifierProvider<SearchProvider>(
+          create: (_) => SearchProvider(
+            apiService: ApiServices(),
           ),
         ),
       ],

@@ -4,6 +4,8 @@ import 'package:acf_news/presentations/widgets/card_category_news.dart';
 import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/application_error_widget.dart';
+
 class CategoryNews extends StatefulWidget {
   const CategoryNews({
     Key? key,
@@ -36,13 +38,15 @@ class _CategoryNewsState extends State<CategoryNews> {
               Theme.of(context).tabBarTheme.unselectedLabelColor,
           indicatorColor: kColorMaroon,
           tabs: widget.tabs
-              .map((tab) => Tab(
-                    icon: Text(
-                      tab,
-                      style: textTheme.headline6
-                          ?.copyWith(fontWeight: FontWeight.bold),
-                    ),
-                  ))
+              .map(
+                (tab) => Tab(
+                  icon: Text(
+                    tab,
+                    style: textTheme.headline6
+                        ?.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              )
               .toList(),
         ),
         SizedBox(
@@ -79,11 +83,9 @@ class _CategoryNewsState extends State<CategoryNews> {
                             ),
                           );
                         } else if (snapshot.hasError) {
-                          return Center(
+                          return const Center(
                             child: Material(
-                              child: Text(
-                                snapshot.error.toString(),
-                              ),
+                              child: ApplicationError(),
                             ),
                           );
                         } else {
