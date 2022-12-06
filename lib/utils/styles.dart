@@ -3,43 +3,47 @@ import 'package:google_fonts/google_fonts.dart';
 
 const Color kColorPrimary = Colors.white;
 const Color kColorSecondary = Color(0xFF000000);
-const Color kColorMaroon = Color.fromARGB(255, 121, 0, 0);
-const Color darkPrimaryColor = Color(0xFF000000);
+const Color kColorNavy = Color.fromARGB(255, 6, 24, 51);
+const Color darkPrimaryColor = Color.fromARGB(255, 6, 24, 51);
 const Color darkSecondaryColor = Colors.white;
 const Color kcategoryColor = Colors.black26;
-const Color kColorNavi = Color(0x002e4392);
 const Color kColorButton = Color(0x006CC1E3);
+//Color.fromARGB(255, 121, 0, 0);
 
 ThemeData lightTheme = ThemeData(
-    colorScheme: ThemeData.light().colorScheme.copyWith(
-          primary: kColorPrimary,
-          onPrimary: kColorMaroon,
-          secondary: kColorSecondary,
-        ),
-    scaffoldBackgroundColor: Colors.white,
-    visualDensity: VisualDensity.adaptivePlatformDensity,
-    textTheme: textTheme,
-    appBarTheme: const AppBarTheme(elevation: 0),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: kColorMaroon,
-        foregroundColor: Colors.white,
-        textStyle: const TextStyle(),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(40),
-          ),
+  colorScheme: ThemeData.light().colorScheme.copyWith(
+        primary: kColorPrimary,
+        onPrimary: Colors.black,
+        secondary: kColorSecondary,
+        onSecondary: kColorNavy,
+      ),
+  scaffoldBackgroundColor: Colors.white,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+  textTheme: textTheme,
+  appBarTheme: const AppBarTheme(elevation: 0),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: kColorNavy,
+      foregroundColor: Colors.white,
+      textStyle: const TextStyle(),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(40),
         ),
       ),
     ),
-    tabBarTheme: ThemeData.light().tabBarTheme.copyWith(
-        labelColor: kColorNavi, unselectedLabelColor: Colors.black26));
+  ),
+  tabBarTheme: ThemeData.light()
+      .tabBarTheme
+      .copyWith(labelColor: kColorNavy, unselectedLabelColor: Colors.black26),
+);
 
 ThemeData darkTheme = ThemeData.dark().copyWith(
     colorScheme: ThemeData.dark().colorScheme.copyWith(
           primary: darkPrimaryColor,
           onPrimary: Colors.white,
           secondary: darkSecondaryColor,
+          onSecondary: kColorNavy,
         ),
     scaffoldBackgroundColor: darkPrimaryColor,
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -48,7 +52,7 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
         const AppBarTheme(backgroundColor: darkPrimaryColor, elevation: 0),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: kColorMaroon,
+        backgroundColor: kColorNavy,
         foregroundColor: Colors.white,
         textStyle: const TextStyle(),
         shape: const RoundedRectangleBorder(
