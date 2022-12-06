@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:acf_news/presentations/pages/account_page.dart';
-import 'package:acf_news/presentations/pages/sign_in_page.dart';
+import 'package:acf_news/presentations/pages/login_page.dart';
 import 'package:acf_news/presentations/widgets/platform_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
