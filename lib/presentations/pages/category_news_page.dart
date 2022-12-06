@@ -34,9 +34,8 @@ class _CategoryNewsState extends State<CategoryNews> {
         TabBar(
           isScrollable: true,
           labelColor: Theme.of(context).colorScheme.onPrimary,
-          unselectedLabelColor:
-              Theme.of(context).tabBarTheme.unselectedLabelColor,
-          indicatorColor: kColorMaroon,
+          unselectedLabelColor: Colors.grey,
+          indicatorColor: kColorNavy,
           tabs: widget.tabs
               .map(
                 (tab) => Tab(
