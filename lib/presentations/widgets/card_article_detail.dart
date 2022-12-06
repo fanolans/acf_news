@@ -164,7 +164,7 @@ class CardArticleDetail extends StatelessWidget {
                               ),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: kColorMaroon,
+                                  backgroundColor: kColorNavy,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(40),
                                   ),

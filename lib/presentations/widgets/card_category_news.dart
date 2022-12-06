@@ -62,7 +62,7 @@ class CategoryNewsCard extends StatelessWidget {
                                 const Icon(
                                   Icons.schedule_outlined,
                                   size: 18,
-                                  color: kColorMaroon,
+                                  color: kColorNavy,
                                 ),
                                 const SizedBox(
                                   width: 5,
