@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:acf_news/presentations/pages/account_page.dart';
 import 'package:acf_news/presentations/pages/sign_in_page.dart';
 import 'package:acf_news/presentations/widgets/platform_widget.dart';
 import 'package:flutter/material.dart';
@@ -60,6 +61,9 @@ class CustomDrawer extends StatelessWidget {
                   color: Theme.of(context).colorScheme.secondary,
                 ),
                 title: const Text('Account'),
+                onTap: () {
+                  Navigator.pushNamed(context, AccountPage.routeName);
+                },
               ),
               ListTile(
                 leading: Icon(
@@ -68,7 +72,6 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 title: const Text('My Bookmarks'),
                 onTap: () {
-                  Navigator.pop(context);
                   Navigator.pushNamed(context, BookmarkPage.routeName);
                 },
               ),
@@ -127,7 +130,7 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 title: const Text('Logout'),
                 onTap: () {
-                  Navigator.pushNamed(context, SignInPage.routeName);
+                  Navigator.pushNamed(context, LoginPage.routeName);
                 },
               ),
             ],
