@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "860763911399",
+    "project_id": "acf-news-e2875",
+    "storage_bucket": "acf-news-e2875.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860763911399:android:04d2e3c011877a4725de42",
+        "android_client_info": {
+          "package_name": "com.example.acf_news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860763911399-7ud1qgubdmqklhp126fgik762e1pgr1t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKFuy4OWycz4WFxicIsgxkqE5plxfvIiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860763911399-7ud1qgubdmqklhp126fgik762e1pgr1t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
