@@ -108,7 +108,7 @@ class MyApp extends StatelessWidget {
                     );
                   },
                   navigatorKey: navigatorKey,
-                  initialRoute: LoginPage.routeName,
+                  initialRoute: HomePage.routeName,
                   routes: {
                     LoginPage.routeName: (context) => const LoginPage(),
                     RegisterPage.routeName: (context) => const RegisterPage(),

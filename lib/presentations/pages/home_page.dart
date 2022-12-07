@@ -75,8 +75,49 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          // SliverPersistentHeader(
+          //   pinned: true,
+          //   delegate: _HeaderSliver(),
+          // ),
         ],
       ),
     );
   }
+}
+
+const _maxHeaderExtent = 100.0;
+
+class _HeaderSliver extends SliverPersistentHeaderDelegate {
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Stack(
+      children: [
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Container(
+            height: _maxHeaderExtent,
+            color: Colors.blue,
+            child: Column(
+              children: [],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  @override
+  // TODO: implement maxExtent
+  double get maxExtent => _maxHeaderExtent;
+
+  @override
+  // TODO: implement minExtent
+  double get minExtent => _maxHeaderExtent;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
+      false;
 }

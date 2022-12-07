@@ -1,5 +1,11 @@
 import 'package:acf_news/data/api/api_service.dart';
 import 'package:acf_news/data/model/article_model.dart';
+import 'package:acf_news/presentations/pages/business_page.dart';
+import 'package:acf_news/presentations/pages/entertaiment_page.dart';
+import 'package:acf_news/presentations/pages/health_page.dart';
+import 'package:acf_news/presentations/pages/science_page.dart';
+import 'package:acf_news/presentations/pages/sport_page.dart';
+import 'package:acf_news/presentations/pages/technology_page.dart';
 import 'package:acf_news/presentations/widgets/card_category_news.dart';
 import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -19,14 +25,6 @@ class CategoryNews extends StatefulWidget {
 }
 
 class _CategoryNewsState extends State<CategoryNews> {
-  late Future<ArticlesResult> _article;
-
-  @override
-  void initState() {
-    super.initState();
-    _article = ApiServices().getHealth();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,54 +48,14 @@ class _CategoryNewsState extends State<CategoryNews> {
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height,
-          child: TabBarView(
-            children: widget.tabs
-                .map(
-                  (tab) => FutureBuilder(
-                    future: _article,
-                    builder: (context, AsyncSnapshot<ArticlesResult> snapshot) {
-                      var state = snapshot.connectionState;
-                      if (state != ConnectionState.done) {
-                        return Center(
-                          child: CircularProgressIndicator(
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
-                        );
-                      } else {
-                        if (snapshot.hasData) {
-                          return SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.55,
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: snapshot.data?.articles.length,
-                              itemBuilder: (context, index) {
-                                var article = snapshot.data?.articles[index];
-                                return Padding(
-                                  padding: const EdgeInsets.only(left: 15),
-                                  child: CategoryNewsCard(
-                                    article: article!,
-                                  ),
-                                );
-                              },
-                            ),
-                          );
-                        } else if (snapshot.hasError) {
-                          return const Center(
-                            child: Material(
-                              child: ApplicationError(),
-                            ),
-                          );
-                        } else {
-                          return const Material(
-                            child: Text(''),
-                          );
-                        }
-                      }
-                    },
-                  ),
-                )
-                .toList(),
-          ),
+          child: const TabBarView(children: [
+            BusinessPage(),
+            EntertaimentPage(),
+            HealthPage(),
+            SciencePage(),
+            SportPage(),
+            TechnologyPage(),
+          ]),
         ),
       ],
     );

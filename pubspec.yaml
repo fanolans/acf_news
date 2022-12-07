@@ -51,6 +51,7 @@ dependencies:
   google_sign_in: ^5.4.2
   cloud_firestore: ^4.1.0
   firebase_core: ^2.3.0
+  sticky_headers: "^0.3.0"
 
 dev_dependencies:
   flutter_test:
