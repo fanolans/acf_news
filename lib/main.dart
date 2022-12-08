@@ -6,6 +6,7 @@ import 'package:acf_news/presentations/pages/article_detail_page.dart';
 import 'package:acf_news/presentations/pages/article_web_view.dart';
 import 'package:acf_news/presentations/pages/bookmark_page.dart';
 import 'package:acf_news/presentations/pages/home_page.dart';
+import 'package:acf_news/presentations/pages/login_register_page.dart';
 import 'package:acf_news/presentations/pages/other_page.dart';
 import 'package:acf_news/presentations/pages/register_page.dart';
 import 'package:acf_news/presentations/pages/search_page.dart';
@@ -108,10 +109,12 @@ class MyApp extends StatelessWidget {
                     );
                   },
                   navigatorKey: navigatorKey,
-                  initialRoute: HomePage.routeName,
+                  initialRoute: LoginRegisterPage.routeName,
                   routes: {
                     LoginPage.routeName: (context) => const LoginPage(),
                     RegisterPage.routeName: (context) => const RegisterPage(),
+                    LoginRegisterPage.routeName: (context) =>
+                        const LoginRegisterPage(),
                     HomePage.routeName: (context) => const HomePage(),
                     SearchPage.routeName: (context) => const SearchPage(),
                     AccountPage.routeName: (context) => const AccountPage(),
