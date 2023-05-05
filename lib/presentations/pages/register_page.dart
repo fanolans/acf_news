@@ -1,5 +1,4 @@
 import 'package:acf_news/data/model/user_model.dart';
-import 'package:acf_news/presentations/pages/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -204,53 +203,54 @@ class _RegisterPageState extends State<RegisterPage> {
                     return null;
                   },
                   decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          // Based on passwordVisible state choose the icon
-                          isVissiblePassword
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          color: kColorNavy,
-                        ),
-                        onPressed: () {
-                          // Update the state i.e. toogle the state of passwordVisible variable
-                          setState(() {
-                            isVissiblePassword = !isVissiblePassword;
-                          });
-                        },
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        // Based on passwordVisible state choose the icon
+                        isVissiblePassword
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: kColorNavy,
                       ),
-                      isDense: true,
-                      contentPadding: const EdgeInsets.all(16),
-                      fillColor: kColorNavy,
-                      hintText: 'Confirm Password',
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: kColorNavy,
-                          width: 1,
-                        ),
+                      onPressed: () {
+                        // Update the state i.e. toogle the state of passwordVisible variable
+                        setState(() {
+                          isVissiblePassword = !isVissiblePassword;
+                        });
+                      },
+                    ),
+                    isDense: true,
+                    contentPadding: const EdgeInsets.all(16),
+                    fillColor: kColorNavy,
+                    hintText: 'Confirm Password',
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        color: kColorNavy,
+                        width: 1,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Color(0xffD6D6D6),
-                          width: 1,
-                        ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        color: Color(0xffD6D6D6),
+                        width: 1,
                       ),
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.red,
-                          width: 1,
-                        ),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        color: Colors.red,
+                        width: 1,
                       ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                          color: Colors.red.shade300,
-                          width: 1,
-                        ),
-                      )),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                        color: Colors.red.shade300,
+                        width: 1,
+                      ),
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 12,
