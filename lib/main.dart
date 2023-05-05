@@ -89,51 +89,52 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: StreamBuilder<User?>(
-          stream: auth.authStateChanges(),
-          builder: (context, snapshot) {
-            return Consumer<PreferencesProvider>(
-              builder: (context, provider, child) {
-                return MaterialApp(
-                  debugShowCheckedModeBanner: false,
-                  title: 'ACF News',
-                  theme: provider.themeData,
-                  builder: (context, child) {
-                    return CupertinoTheme(
-                      data: CupertinoThemeData(
-                        brightness: provider.isDarkTheme
-                            ? Brightness.dark
-                            : Brightness.light,
+        stream: auth.authStateChanges(),
+        builder: (context, snapshot) {
+          return Consumer<PreferencesProvider>(
+            builder: (context, provider, child) {
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                title: 'ACF News',
+                theme: provider.themeData,
+                builder: (context, child) {
+                  return CupertinoTheme(
+                    data: CupertinoThemeData(
+                      brightness: provider.isDarkTheme
+                          ? Brightness.dark
+                          : Brightness.light,
+                    ),
+                    child: Material(
+                      child: child,
+                    ),
+                  );
+                },
+                navigatorKey: navigatorKey,
+                initialRoute: LoginRegisterPage.routeName,
+                routes: {
+                  LoginPage.routeName: (context) => const LoginPage(),
+                  RegisterPage.routeName: (context) => const RegisterPage(),
+                  LoginRegisterPage.routeName: (context) =>
+                      const LoginRegisterPage(),
+                  HomePage.routeName: (context) => const HomePage(),
+                  SearchPage.routeName: (context) => const SearchPage(),
+                  AccountPage.routeName: (context) => const AccountPage(),
+                  OtherPage.routeName: (context) => const OtherPage(),
+                  BookmarkPage.routeName: (context) => const BookmarkPage(),
+                  ArticleDetailPage.routeName: (context) => ArticleDetailPage(
+                        article: ModalRoute.of(context)?.settings.arguments
+                            as Article,
                       ),
-                      child: Material(
-                        child: child,
+                  ArticleWebView.routeName: (context) => ArticleWebView(
+                        url: ModalRoute.of(context)?.settings.arguments
+                            as String,
                       ),
-                    );
-                  },
-                  navigatorKey: navigatorKey,
-                  initialRoute: LoginRegisterPage.routeName,
-                  routes: {
-                    LoginPage.routeName: (context) => const LoginPage(),
-                    RegisterPage.routeName: (context) => const RegisterPage(),
-                    LoginRegisterPage.routeName: (context) =>
-                        const LoginRegisterPage(),
-                    HomePage.routeName: (context) => const HomePage(),
-                    SearchPage.routeName: (context) => const SearchPage(),
-                    AccountPage.routeName: (context) => const AccountPage(),
-                    OtherPage.routeName: (context) => const OtherPage(),
-                    BookmarkPage.routeName: (context) => const BookmarkPage(),
-                    ArticleDetailPage.routeName: (context) => ArticleDetailPage(
-                          article: ModalRoute.of(context)?.settings.arguments
-                              as Article,
-                        ),
-                    ArticleWebView.routeName: (context) => ArticleWebView(
-                          url: ModalRoute.of(context)?.settings.arguments
-                              as String,
-                        ),
-                  },
-                );
-              },
-            );
-          }),
+                },
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

@@ -104,7 +104,10 @@ class _LoginRegisterPageState extends State<LoginRegisterPage>
               Expanded(
                 child: TabBarView(
                   controller: tabController,
-                  children: const [LoginPage(), RegisterPage()],
+                  children: const [
+                    LoginPage(),
+                    RegisterPage(),
+                  ],
                 ),
               ),
             ],
