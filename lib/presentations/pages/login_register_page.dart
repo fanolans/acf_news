@@ -3,8 +3,6 @@ import 'package:acf_news/presentations/pages/register_page.dart';
 import 'package:acf_news/utils/global_functions.dart';
 import 'package:acf_news/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class LoginRegisterPage extends StatefulWidget {
   const LoginRegisterPage({super.key});
@@ -35,7 +33,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage>
     final Size size = GlobalFunctions.screenSize(context: context);
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
@@ -54,17 +52,17 @@ class _LoginRegisterPageState extends State<LoginRegisterPage>
                     Text(
                       'Welcome',
                       style: GlobalFunctions.textTheme(context: context)
-                          .headline3!
+                          .displaySmall!
                           .copyWith(
-                              color: Theme.of(context).colorScheme.secondary,
+                              color: Theme.of(context).colorScheme.primary,
                               fontSize: 14),
                     ),
                     Text(
                       'ACF News',
                       style: GlobalFunctions.textTheme(context: context)
-                          .headline3!
+                          .displaySmall!
                           .copyWith(
-                              color: Theme.of(context).colorScheme.secondary,
+                              color: Theme.of(context).colorScheme.primary,
                               fontSize: 48),
                     ),
                   ],

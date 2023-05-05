@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import '../widgets/custom_drawer.dart';
-import 'category_news_page.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/home_page';
@@ -70,7 +69,7 @@ class _HomePageState extends State<HomePage>
                                       left: 15, right: 15),
                                   child: Text(
                                     'Breaking News',
-                                    style: textTheme.headline5?.copyWith(
+                                    style: textTheme.headlineSmall?.copyWith(
                                         color: Theme.of(context)
                                             .colorScheme
                                             .secondary,
@@ -80,7 +79,7 @@ class _HomePageState extends State<HomePage>
                                 const SizedBox(
                                   height: 10,
                                 ),
-                                Container(
+                                SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height * 0.55,
                                   child: const ArticleListPage(),
@@ -110,42 +109,42 @@ class _HomePageState extends State<HomePage>
                                 Tab(
                                   child: Text(
                                     "Business",
-                                    style: textTheme.headline6
+                                    style: textTheme.titleLarge
                                         ?.copyWith(fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 Tab(
                                   child: Text(
                                     "Entertaiment",
-                                    style: textTheme.headline6
+                                    style: textTheme.titleLarge
                                         ?.copyWith(fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 Tab(
                                   child: Text(
                                     "Health",
-                                    style: textTheme.headline6
+                                    style: textTheme.titleLarge
                                         ?.copyWith(fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 Tab(
                                   child: Text(
                                     "Science",
-                                    style: textTheme.headline6
+                                    style: textTheme.titleLarge
                                         ?.copyWith(fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 Tab(
                                   child: Text(
                                     "Sport",
-                                    style: textTheme.headline6
+                                    style: textTheme.titleLarge
                                         ?.copyWith(fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 Tab(
                                   child: Text(
                                     "Technology",
-                                    style: textTheme.headline6
+                                    style: textTheme.titleLarge
                                         ?.copyWith(fontWeight: FontWeight.bold),
                                   ),
                                 ),

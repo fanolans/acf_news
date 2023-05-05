@@ -354,20 +354,15 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(
                       width: 5,
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, LoginPage.routeName);
-                      },
-                      child: Text(
-                        ' Sign In Here'.toUpperCase(),
-                        style: GlobalFunctions.textTheme(context: context)
-                            .headline3!
-                            .copyWith(
-                                color: Theme.of(context).colorScheme.secondary,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700),
-                      ),
-                    )
+                    Text(
+                      ' Swipe Right'.toUpperCase(),
+                      style: GlobalFunctions.textTheme(context: context)
+                          .headline3!
+                          .copyWith(
+                              color: Theme.of(context).colorScheme.secondary,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700),
+                    ),
                   ],
                 )
               ],

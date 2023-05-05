@@ -1,4 +1,3 @@
-import 'package:acf_news/presentations/pages/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -276,7 +275,7 @@ class _LoginPageState extends State<LoginPage> {
                   Text(
                     "Don't have an account?",
                     style: GlobalFunctions.textTheme(context: context)
-                        .headline3!
+                        .displaySmall!
                         .copyWith(
                             color: const Color(0xff9E9E9E),
                             fontSize: 12,
@@ -285,20 +284,15 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     width: 5,
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, RegisterPage.routeName);
-                    },
-                    child: Text(
-                      'Create Account'.toUpperCase(),
-                      style: GlobalFunctions.textTheme(context: context)
-                          .headline3!
-                          .copyWith(
-                              color: Theme.of(context).colorScheme.secondary,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700),
-                    ),
-                  )
+                  Text(
+                    'Swipe left'.toUpperCase(),
+                    style: GlobalFunctions.textTheme(context: context)
+                        .displaySmall!
+                        .copyWith(
+                            color: Theme.of(context).colorScheme.secondary,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700),
+                  ),
                 ],
               )
             ],
