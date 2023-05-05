@@ -50,7 +50,10 @@ class _LoginPageState extends State<LoginPage> {
                   return null;
                 },
                 decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.email),
+                  prefixIcon: const Icon(
+                    Icons.email,
+                    color: kColorNavy,
+                  ),
                   isDense: true,
                   contentPadding: const EdgeInsets.all(16),
                   fillColor: kColorNavy,
@@ -99,7 +102,10 @@ class _LoginPageState extends State<LoginPage> {
                   return null;
                 },
                 decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.lock_outlined),
+                  prefixIcon: const Icon(
+                    Icons.lock_outlined,
+                    color: kColorNavy,
+                  ),
                   suffixIcon: IconButton(
                     icon: Icon(
                       isVissiblePassword
@@ -222,7 +228,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(
-                height: 24,
+                height: 16,
               ),
               SizedBox(
                 width: 180,
