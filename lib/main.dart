@@ -94,6 +94,7 @@ class MyApp extends StatelessWidget {
             return Consumer<PreferencesProvider>(
               builder: (context, provider, child) {
                 return MaterialApp(
+                  debugShowCheckedModeBanner: false,
                   title: 'News App',
                   theme: provider.themeData,
                   builder: (context, child) {
