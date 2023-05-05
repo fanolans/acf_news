@@ -36,19 +36,19 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   equatable: ^2.0.3
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.4
   http: ^0.13.5
   provider: ^6.0.4
-  webview_flutter: ^3.0.4
+  webview_flutter: ^4.2.0
   sqflite: ^2.2.0+3
   shared_preferences: ^2.0.15
   android_alarm_manager_plus: ^2.1.0
   rxdart: ^0.27.7
-  flutter_local_notifications: ^12.0.4
-  intl: ^0.17.0
+  flutter_local_notifications: ^14.0.0+1
+  intl: ^0.18.1
   footer: ^0.0.4
   firebase_auth: ^4.1.5
-  google_sign_in: ^5.4.2
+  google_sign_in: ^6.1.0
   cloud_firestore: ^4.1.0
   firebase_core: ^2.3.0
   sticky_headers: "^0.3.0"
