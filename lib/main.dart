@@ -95,7 +95,7 @@ class MyApp extends StatelessWidget {
               builder: (context, provider, child) {
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  title: 'News App',
+                  title: 'ACF News',
                   theme: provider.themeData,
                   builder: (context, child) {
                     return CupertinoTheme(
